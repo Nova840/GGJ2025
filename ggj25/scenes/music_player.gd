@@ -6,6 +6,8 @@ var manager                       # Reference to your input manager node
 func _ready() -> void:
 	# Start normal speed
 	pitch_scale = 1.0
+	if (get_meta("bpm160")):
+		pitch_scale = 140/160
 	play()
 	
 func _process(delta: float) -> void:
@@ -32,3 +34,8 @@ func on_round_end() -> void:
 			var pitch_shift_effect = effect as AudioEffectPitchShift
 			pitch_shift_effect.pitch_scale = 1.0 / new_speed
 		print("Speeding up!")
+
+
+func _on_finished() -> void:
+	play()
+	pass # Replace with function body.

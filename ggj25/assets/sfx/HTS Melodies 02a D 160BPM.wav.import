@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d3hi1ilbx0fk6"
+path="res://.godot/imported/HTS Melodies 02a D 160BPM.wav-ffa74e5b70b91d3fe733da97c20e6e70.sample"
+
+[deps]
+
+source_file="res://assets/sfx/HTS Melodies 02a D 160BPM.wav"
+dest_files=["res://.godot/imported/HTS Melodies 02a D 160BPM.wav-ffa74e5b70b91d3fe733da97c20e6e70.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

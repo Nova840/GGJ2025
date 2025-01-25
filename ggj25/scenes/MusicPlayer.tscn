@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2h2ivxabqesl"]
+[gd_scene load_steps=6 format=3 uid="uid://d2h2ivxabqesl"]
 
 [ext_resource type="AudioStream" uid="uid://clwceedu7sn66" path="res://assets/sfx/breakbeat.wav" id="1_5c26w"]
 [ext_resource type="Script" path="res://scenes/music_player.gd" id="2_j7owc"]
-[ext_resource type="AudioStream" uid="uid://uynci41t0yb4" path="res://assets/sfx/misery.wav" id="3_ob5ht"]
+[ext_resource type="AudioStream" uid="uid://d3hi1ilbx0fk6" path="res://assets/sfx/HTS Melodies 02a D 160BPM.wav" id="3_54j44"]
+[ext_resource type="AudioStream" uid="uid://w7ggsv7pey2g" path="res://assets/sfx/bass.wav" id="5_0u6l3"]
+[ext_resource type="AudioStream" uid="uid://ds7dbqn5rsqnj" path="res://assets/sfx/HTS Melodies 08f G 140BPM.wav" id="5_b7v83"]
 
 [node name="MusicPlayer" type="AudioStreamPlayer"]
 stream = ExtResource("1_5c26w")
@@ -10,9 +12,27 @@ autoplay = true
 script = ExtResource("2_j7owc")
 metadata/round = 0
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_ob5ht")
-volume_db = 3.0
-pitch_scale = 0.43
+[node name="160 to 142" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_b7v83")
+volume_db = -3.0
 autoplay = true
 script = ExtResource("2_j7owc")
+metadata/bpm160 = false
+
+[node name="160 to 141" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_0u6l3")
+volume_db = 1.5
+autoplay = true
+script = ExtResource("2_j7owc")
+metadata/bpm160 = false
+
+[node name="160 to 140" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_54j44")
+autoplay = true
+script = ExtResource("2_j7owc")
+metadata/bpm160 = false
+
+[connection signal="finished" from="." to="." method="_on_finished"]
+[connection signal="finished" from="160 to 142" to="160 to 142" method="_on_finished"]
+[connection signal="finished" from="160 to 141" to="160 to 141" method="_on_finished"]
+[connection signal="finished" from="160 to 140" to="160 to 140" method="_on_finished"]
