@@ -2,6 +2,7 @@ extends Node
 
 
 @export_file var game_scene_paths: Array[String]
+@export var dont_repeat_rounds: int
 
 const PLAYER_SPRITES: Array[Resource] = [
 	preload("res://assets/Blue Bubble .png"),
@@ -14,6 +15,7 @@ var rounds_completed: int = -1
 var starting_players: Array[int]
 var alive_players: Array[int]
 var round_player_eliminated: Dictionary # [int player, int round eliminated]
+var all_game_scenes_loaded: Array[String]
 
 
 func get_input_move(player_controller: int) -> Vector2:
@@ -78,10 +80,21 @@ func next_round(players_eliminated: Array[int]) -> void:
 
 	rounds_completed += 1
 
-	if alive_players.size() == 0:
+	if alive_players.is_empty():
 		get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
 	else:
-		get_tree().change_scene_to_file(game_scene_paths[randi_range(0, game_scene_paths.size() - 1)])
+		var scenes := game_scene_paths.duplicate()
+		for i in dont_repeat_rounds:
+			if all_game_scenes_loaded.is_empty():
+				break
+			var scene_index_to_remove := scenes.find(all_game_scenes_loaded[all_game_scenes_loaded.size() - 1])
+			if scene_index_to_remove != -1:
+				scenes.remove_at(scene_index_to_remove)
+		if scenes.is_empty():
+			scenes = game_scene_paths.duplicate()
+		var scene_to_load: String = scenes[randi_range(0, scenes.size() - 1)]
+		all_game_scenes_loaded.append(scene_to_load)
+		get_tree().change_scene_to_file(scene_to_load)
 
 
 func reset() -> void:
@@ -89,6 +102,7 @@ func reset() -> void:
 	alive_players = starting_players.duplicate()
 	for p in round_player_eliminated.keys():
 		round_player_eliminated[p] = -1
+	all_game_scenes_loaded.clear()
 
 
 func add_player(player: int) -> void:
