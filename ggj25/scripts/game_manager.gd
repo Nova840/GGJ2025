@@ -67,7 +67,10 @@ func next_round(players_eliminated: Array[int]) -> void:
 	for p in players_eliminated:
 		if alive_players.has(p):
 			alive_players.remove_at(alive_players.find(p))
-	get_tree().change_scene_to_file(game_scene_paths[randi_range(0, game_scene_paths.size() - 1)])
+	if alive_players.size() == 0:
+		get_tree().change_scene_to_file("res://scenes/start_menu.tscn")
+	else:
+		get_tree().change_scene_to_file(game_scene_paths[randi_range(0, game_scene_paths.size() - 1)])
 
 
 func reset_rounds_completed() -> void:
