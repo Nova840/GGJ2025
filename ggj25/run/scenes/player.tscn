@@ -4,6 +4,37 @@
 [ext_resource type="Texture2D" uid="uid://rc76c6octbqw" path="res://run/sprites/player.png" id="1_ypdww"]
 [ext_resource type="Script" path="res://run/scripts/player_animator.gd" id="2_e26g4"]
 
+[sub_resource type="Animation" id="Animation_ip5um"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAnimator/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 16, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_s0xkv"]
+resource_name = "fall"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAnimator/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 48, 16, 16)]
+}
+
 [sub_resource type="Animation" id="Animation_qgfly"]
 resource_name = "idle"
 length = 1.5
@@ -22,8 +53,9 @@ tracks/0/keys = {
 "values": [Rect2(0, 0, 16, 16), Rect2(16, 0, 16, 16), Rect2(32, 0, 16, 16), Rect2(48, 0, 16, 16), Rect2(64, 0, 16, 16), Rect2(80, 0, 16, 16), Rect2(0, 0, 16, 16)]
 }
 
-[sub_resource type="Animation" id="Animation_ip5um"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_ooggh"]
+resource_name = "jump"
+step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -34,7 +66,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Rect2(0, 0, 16, 16)]
+"values": [Rect2(0, 32, 16, 16)]
 }
 
 [sub_resource type="Animation" id="Animation_t04id"]
@@ -52,38 +84,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Rect2(0, 16, 16, 16), Rect2(16, 16, 16, 16), Rect2(32, 16, 16, 16), Rect2(48, 16, 16, 16), Rect2(0, 16, 16, 16)]
-}
-
-[sub_resource type="Animation" id="Animation_ooggh"]
-resource_name = "jump"
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerAnimator/Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(0, 32, 16, 16)]
-}
-
-[sub_resource type="Animation" id="Animation_s0xkv"]
-resource_name = "fall"
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerAnimator/Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(0, 48, 16, 16)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x73tq"]
