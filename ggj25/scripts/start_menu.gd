@@ -5,6 +5,10 @@ class_name StartMenu
 @onready var players_label: Label = $PlayersLabel
 
 
+func _ready() -> void:
+	GameManager.reset()
+
+
 func _process(delta: float) -> void:
 	for p in range(-1, 4):
 		if GameManager.get_input_action_1(p):
