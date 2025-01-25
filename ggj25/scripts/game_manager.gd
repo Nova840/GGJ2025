@@ -3,6 +3,13 @@ extends Node
 
 @export_file var game_scene_paths: Array[String]
 
+const PLAYER_SPRITES: Array[Resource] = [
+	preload("res://assets/Blue Bubble .png"),
+	preload("res://assets/Green Bubble .png"),
+	preload("res://assets/Pink Bubble .png"),
+	preload("res://assets/Purple Bubble .png"),
+]
+
 var rounds_completed: int = -1
 var starting_players: Array[int]
 var alive_players: Array[int]
