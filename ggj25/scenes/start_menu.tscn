@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dp00ysmnpthbj"]
+
+[node name="StartMenu" type="Node"]
+
+[node name="PlayButton" type="Button" parent="."]
+offset_left = 349.0
+offset_top = 204.0
+offset_right = 562.0
+offset_bottom = 306.0
+text = "Play"

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4foq61s5ty35"]
+
+[ext_resource type="Script" path="res://scripts/test_game.gd" id="1_wbqru"]
+
+[node name="TestGame" type="Node"]
+script = ExtResource("1_wbqru")
+game_time = 5.0
+
+[node name="RoundsLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="TimeLabel" type="Label" parent="."]
+offset_left = 504.0
+offset_top = 116.0
+offset_right = 544.0
+offset_bottom = 139.0
