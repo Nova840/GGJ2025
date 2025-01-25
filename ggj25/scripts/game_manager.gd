@@ -6,6 +6,7 @@ extends Node
 var rounds_completed: int = -1
 var starting_players: Array[int]
 var alive_players: Array[int]
+var round_player_eliminated: Dictionary # [int player, int round eliminated]
 
 
 func get_input_move(player_controller: int) -> Vector2:
@@ -63,18 +64,23 @@ func get_input_start_just_pressed(player_controller: int) -> bool:
 
 
 func next_round(players_eliminated: Array[int]) -> void:
-	rounds_completed += 1
 	for p in players_eliminated:
 		if alive_players.has(p):
 			alive_players.remove_at(alive_players.find(p))
+			round_player_eliminated[p] = rounds_completed
+
+	rounds_completed += 1
+
 	if alive_players.size() == 0:
-		get_tree().change_scene_to_file("res://scenes/start_menu.tscn")
+		get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
 	else:
 		get_tree().change_scene_to_file(game_scene_paths[randi_range(0, game_scene_paths.size() - 1)])
 
 
-func reset_rounds_completed() -> void:
+func reset() -> void:
 	rounds_completed = 0
+	for p in round_player_eliminated.keys():
+		round_player_eliminated[p] = -1
 
 
 func add_player(player: int) -> void:
@@ -82,6 +88,8 @@ func add_player(player: int) -> void:
 		starting_players.append(player)
 	if not alive_players.has(player):
 		alive_players.append(player)
+	if not round_player_eliminated.has(player):
+		round_player_eliminated[player] = -1
 
 
 func remove_player(player: int) -> void:
@@ -89,3 +97,5 @@ func remove_player(player: int) -> void:
 		starting_players.remove_at(starting_players.find(player))
 	if alive_players.has(player):
 		alive_players.remove_at(alive_players.find(player))
+	if round_player_eliminated.has(player):
+		round_player_eliminated.erase(player)
