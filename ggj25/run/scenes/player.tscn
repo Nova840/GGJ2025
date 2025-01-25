@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://run/scripts/player_controller.gd" id="1_4y3d7"]
 [ext_resource type="Script" path="res://run/scripts/player_animator.gd" id="2_e26g4"]
-[ext_resource type="Texture2D" uid="uid://cqyqgutnfolg6" path="res://assets/Blue Bubble .png" id="3_j4mu5"]
+[ext_resource type="Texture2D" uid="uid://b1f4d5cor7r10" path="res://assets/Blue Bubble .png" id="3_j4mu5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b1kq8"]
 radius = 12.0
@@ -13,7 +13,7 @@ script = ExtResource("1_4y3d7")
 [node name="PlayerAnimator" type="Node2D" parent="." node_paths=PackedStringArray("player_controller", "sprite")]
 script = ExtResource("2_e26g4")
 player_controller = NodePath("..")
-sprite = NodePath("")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerAnimator"]
 position = Vector2(0, -12)

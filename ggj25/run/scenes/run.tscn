@@ -1,18 +1,55 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7hd1jfhtqpbk"]
+[gd_scene load_steps=12 format=3 uid="uid://b7hd1jfhtqpbk"]
 
+[ext_resource type="Texture2D" uid="uid://ga3m68vbfrr2" path="res://assets/platformtilered.png" id="2_adwxx"]
 [ext_resource type="Script" path="res://run/scripts/level_manager.gd" id="3_1h47e"]
-[ext_resource type="PackedScene" uid="uid://cr2fwwnsypd2" path="res://run/scenes/ground.tscn" id="3_v12u6"]
+[ext_resource type="Texture2D" uid="uid://cs6iyscx7842k" path="res://assets/moveabletilepurple.png" id="3_b6afu"]
+[ext_resource type="Texture2D" uid="uid://f0goisahkds0" path="res://assets/Needle .png" id="4_wnhji"]
+[ext_resource type="Texture2D" uid="uid://bvq1pxa1eri2d" path="res://assets/Thorns.png" id="5_1r0ih"]
+[ext_resource type="Texture2D" uid="uid://dkl72ci1cevtn" path="res://assets/runbackground.png" id="6_mt661"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7se6j"]
+texture = ExtResource("2_adwxx")
+0:0/size_in_atlas = Vector2i(4, 4)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32, -32, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_io3ov"]
+texture = ExtResource("3_b6afu")
+0:0/size_in_atlas = Vector2i(4, 4)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cdttp"]
+texture = ExtResource("4_wnhji")
+0:0/size_in_atlas = Vector2i(4, 4)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d8ane"]
+texture = ExtResource("5_1r0ih")
+1:0/size_in_atlas = Vector2i(14, 6)
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_p2ajl"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_7se6j")
+sources/1 = SubResource("TileSetAtlasSource_io3ov")
+sources/2 = SubResource("TileSetAtlasSource_cdttp")
+sources/3 = SubResource("TileSetAtlasSource_d8ane")
 
 [node name="Run" type="Node2D"]
-
-[node name="LevelManager" type="Node2D" parent="."]
-script = ExtResource("3_1h47e")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(578, 324)
 
-[node name="Terrain" type="Node2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(577, 322)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("6_mt661")
 
-[node name="Ground" parent="." instance=ExtResource("3_v12u6")]
-position = Vector2(471, 578)
-scale = Vector2(14.6, 1)
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_p2ajl")
+format = 2
+layer_0/tile_data = PackedInt32Array(2490369, 0, 0, 2490373, 0, 0, 2490377, 0, 0, 2490381, 0, 0, 2490385, 0, 0, 2490389, 0, 0, 2490393, 0, 0, 2490397, 0, 0, 2490401, 0, 0, 2490405, 0, 0, 2490409, 0, 0)
+
+[node name="LevelManager" type="Node2D" parent="."]
+script = ExtResource("3_1h47e")
