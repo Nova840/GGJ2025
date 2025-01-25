@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://c6btkrvfxrcsm"
+=======
+uid="uid://cqyqgutnfolg6"
+>>>>>>> 95f0d2e32c80a504ab972f263b086af0ec50ca07
 path="res://.godot/imported/Blue Bubble .png-756fade95757f5fa9865a024b3e9cd6a.ctex"
 metadata={
 "vram_texture": false

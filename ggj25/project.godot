@@ -11,7 +11,11 @@ config_version=5
 [application]
 
 config/name="GGJ25"
+<<<<<<< HEAD
 run/main_scene="res://scenes/MusicPlayer.tscn"
+=======
+run/main_scene="res://scenes/start_menu.tscn"
+>>>>>>> 95f0d2e32c80a504ab972f263b086af0ec50ca07
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 

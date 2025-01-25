@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://dpr3rkedan5si"
-=======
-uid="uid://c1dk7ximg66c4"
->>>>>>> 95f0d2e32c80a504ab972f263b086af0ec50ca07
-path="res://.godot/imported/Green Bubble .png-c94e35ba63fdebd44b27576ff9d1cf99.ctex"
+uid="uid://f0goisahkds0"
+path="res://.godot/imported/Needle .png-1f27e1f5de4f87931e4a40933cf89b12.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Green Bubble .png"
-dest_files=["res://.godot/imported/Green Bubble .png-c94e35ba63fdebd44b27576ff9d1cf99.ctex"]
+source_file="res://assets/Needle .png"
+dest_files=["res://.godot/imported/Needle .png-1f27e1f5de4f87931e4a40933cf89b12.ctex"]
 
 [params]
 
