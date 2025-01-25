@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/duel.gd" id="1_ah3ox"]
 [ext_resource type="FontFile" uid="uid://iivpx384oqhw" path="res://assets/Stock Quote.ttf" id="2_epvv7"]
-[ext_resource type="Script" path="res://scenes/rich_text_label.gd" id="3_duvt1"]
+[ext_resource type="Script" path="res://scripts/instruction_label.gd" id="3_duvt1"]
 [ext_resource type="AudioStream" uid="uid://cje0q34bvguj0" path="res://assets/sfx/cock.wav" id="4_7m60k"]
 [ext_resource type="AudioStream" uid="uid://chtcyudbw0ie5" path="res://assets/sfx/gunshot.wav" id="5_va0cy"]
 
