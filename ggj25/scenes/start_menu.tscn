@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://dp00ysmnpthbj"]
+[gd_scene load_steps=2 format=3 uid="uid://dp00ysmnpthbj"]
+
+[ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_7gmsj"]
 
 [node name="StartMenu" type="Node"]
+script = ExtResource("1_7gmsj")
 
-[node name="PlayButton" type="Button" parent="."]
-offset_left = 349.0
-offset_top = 204.0
-offset_right = 562.0
-offset_bottom = 306.0
-text = "Play"
+[node name="PlayersLabel" type="Label" parent="."]
+offset_right = 166.0
+offset_bottom = 201.0

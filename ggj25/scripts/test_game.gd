@@ -31,4 +31,4 @@ func _process(delta: float) -> void:
 		for p in GameManager.alive_players:
 			if not players_won.has(p):
 				players_eliminated.append(p)
-		GameManager.finish_game(players_eliminated)
+		GameManager.next_round(players_eliminated)
