@@ -3,9 +3,19 @@ extends Node2D
 var starting_players: Array[int]
 var player_controllers: Array[PlayerController]
 
+
 func _init() -> void:
 	# spawn player sprites
-	var starting_players = GameManager.alive_players
+	starting_players = GameManager.alive_players
+	print("starting players : " + str(starting_players.size()))
+	for p in starting_players:
+		var player_scene: PlayerController = preload("res://run/scenes/player.tscn").instantiate()
+		player_controllers.append(player_scene)
+		
+		# load sprites dynamically
+		var animator: PlayerAnimator = player_scene.get_child(0)
+		# TODO - get the sprite path from gamemanager
+		animator.sprite.texture = load("res://assets/Blue Bubble .png")
 
 
 func _process(delta: float) -> void:
