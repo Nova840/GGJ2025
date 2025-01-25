@@ -8,18 +8,23 @@ var speed_multiplier = 30.0
 var jump_multiplier = -30.0
 var direction = 0
 
+var is_alive = true
+var finished_level = false
+
+var id = -1
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
+		
+	var direction_vec = GameManager.get_input_move(id)
 	
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if direction_vec.y < 0 and is_on_floor():
 		velocity.y = jump_power * jump_multiplier
 	
-	direction = Input.get_axis("move_left", "move_right")
+	direction = direction_vec.x
 	if direction:
 		velocity.x = direction * speed * speed_multiplier
 	else:
