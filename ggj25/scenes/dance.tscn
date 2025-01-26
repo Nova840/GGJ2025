@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cv63q1t11o41u"]
+[gd_scene load_steps=7 format=3 uid="uid://d3yw0u8v77ok8"]
 
 [ext_resource type="FontFile" uid="uid://iivpx384oqhw" path="res://assets/Stock Quote.ttf" id="1_kcvrd"]
 [ext_resource type="Script" path="res://scripts/instruction_label.gd" id="2_phjii"]
 [ext_resource type="Script" path="res://scenes/arrow_spawner.gd" id="4_aamls"]
-[ext_resource type="PackedScene" path="res://scenes/arrow.tscn" id="5_ddqn4"]
+[ext_resource type="PackedScene" uid="uid://dxdqh7j0l6n38" path="res://scenes/arrow.tscn" id="5_ddqn4"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_x2i7c"]
 size = Vector2(128, 128)
@@ -97,8 +97,7 @@ shape = SubResource("RectangleShape2D_8nvmd")
 script = ExtResource("4_aamls")
 arrow = ExtResource("5_ddqn4")
 spawn_distance = 750.0
-round_time = null
+round_time = 10.0
 
 [node name="Timer" type="Timer" parent="ArrowSpawner"]
 wait_time = 1.5
-autostart = true

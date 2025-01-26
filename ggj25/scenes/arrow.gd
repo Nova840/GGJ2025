@@ -7,6 +7,8 @@ class_name Arrow
 @export var speed: float
 @export var time_window: float
 
+var arrow_spawner: ArrowSpawner
+
 var time_created: float
 
 var players_hit: Array[int]
@@ -32,7 +34,13 @@ func _process(delta: float) -> void:
 			input = GameManager.get_input_up_just_pressed(p)
 		elif direction == Direction.Down:
 			input = GameManager.get_input_down_just_pressed(p)
-		if input and abs(time_created + 1500 - Time.get_ticks_msec() ) / 1000 <= time_window:
+		if input and abs(time_created + 1500 - Time.get_ticks_msec()) / 1000 <= time_window:
 			players_hit.append(p)
 			sprite.texture = null
+		
+	if (Time.get_ticks_msec() - 1500 - time_created) / 1000 >= 0.25:
+		var players_to_eliminate := GameManager.alive_players.duplicate()
+		for hit_player in players_hit:
+			players_to_eliminate.remove_at(players_to_eliminate.find(hit_player))
+		arrow_spawner.add_players_to_eliminated(players_to_eliminate)
 		

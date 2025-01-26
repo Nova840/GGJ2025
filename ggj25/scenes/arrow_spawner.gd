@@ -1,4 +1,5 @@
 extends Node2D
+class_name ArrowSpawner
 
 
 @onready var arrow_receptor_left: Area2D = $"../Arrow Receptors/Arrow Receptor LEFT"
@@ -23,6 +24,8 @@ extends Node2D
 
 var elapsed_time: float = 0
 
+var players_lost: Array[int]
+
 
 func _ready() -> void:
 	timer.timeout.connect(spawn_arrow)
@@ -32,7 +35,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	elapsed_time += delta
 	if elapsed_time >= round_time:
-		GameManager.next_round()
+		GameManager.next_round(players_lost)
 
 
 func spawn_arrow() -> void:
@@ -40,6 +43,7 @@ func spawn_arrow() -> void:
 	var arrow_instantiated := arrow.instantiate() as Arrow
 	arrow_instantiated.global_position = spawn_receptor.global_position
 	arrow_instantiated.global_position.y += spawn_distance
+	arrow_instantiated.arrow_spawner = self
 
 	if spawn_receptor == arrow_receptor_left:
 		arrow_instantiated.direction = Arrow.Direction.Left
@@ -51,3 +55,8 @@ func spawn_arrow() -> void:
 		arrow_instantiated.direction = Arrow.Direction.Down
 
 	add_child(arrow_instantiated)
+
+func add_players_to_eliminated(players: Array[int]):
+	for p in players:
+		if not players_lost.has(p):
+			players_lost.append(p)
