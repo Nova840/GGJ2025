@@ -1,10 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://dp00ysmnpthbj"]
+[gd_scene load_steps=5 format=3 uid="uid://dp00ysmnpthbj"]
 
 [ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_7gmsj"]
 [ext_resource type="Script" path="res://scripts/start_player_label.gd" id="2_1bvnr"]
+[ext_resource type="PackedScene" uid="uid://cekbx1g251wm4" path="res://scenes/high_score_table.tscn" id="3_v5ulp"]
+[ext_resource type="Texture2D" uid="uid://cmlyojxkv5qlt" path="res://assets/Introduction_background .png" id="4_sfbda"]
 
 [node name="StartMenu" type="Node"]
 script = ExtResource("1_7gmsj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_sfbda")
+expand_mode = 2
 
 [node name="TitleLabel" type="Label" parent="."]
 anchors_preset = 5
@@ -14,6 +25,7 @@ offset_left = -83.0
 offset_right = 83.0
 offset_bottom = 117.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Bubble Game Title Text Thingy"
 horizontal_alignment = 1
 
@@ -29,6 +41,7 @@ offset_right = 458.0
 offset_bottom = -181.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Press SPACE or A to join"
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -46,6 +59,7 @@ offset_right = 460.0
 offset_bottom = -69.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Press SPACE or A to join"
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -64,6 +78,7 @@ offset_right = 458.0
 offset_bottom = 38.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Press SPACE or A to join"
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -82,6 +97,7 @@ offset_right = 466.0
 offset_bottom = 144.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Press SPACE or A to join"
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -100,4 +116,12 @@ offset_right = 115.0
 offset_bottom = -380.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Press ENTER or START to play"
+
+[node name="HighScoreTable" parent="." instance=ExtResource("3_v5ulp")]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+grow_horizontal = 1

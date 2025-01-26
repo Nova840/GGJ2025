@@ -14,14 +14,12 @@ metadata/round = 0
 
 [node name="160 to 142" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_b7v83")
-volume_db = -3.0
 autoplay = true
 script = ExtResource("2_j7owc")
 metadata/bpm160 = false
 
 [node name="160 to 141" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_0u6l3")
-volume_db = 1.5
 autoplay = true
 script = ExtResource("2_j7owc")
 metadata/bpm160 = false

@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://cekbx1g251wm4"]
+
+[ext_resource type="Script" path="res://scripts/high_score_table.gd" id="1_wl5wb"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wgu4a"]
+
+[node name="HighScoreTable" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wl5wb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+texture = SubResource("PlaceholderTexture2D_wgu4a")
+
+[node name="TitleLabel" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "High Scores"
+horizontal_alignment = 1
+
+[node name="ScoresLabel" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 23.0
+offset_right = 100.0
+offset_bottom = 400.0
+grow_horizontal = 2
+text = "x
+x
+x
+x
+x
+x
+x
+x
+x
+x"
+horizontal_alignment = 1

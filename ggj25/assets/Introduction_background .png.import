@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://htcuro3305kn"
-=======
-uid="uid://csxmvej4805qd"
->>>>>>> ee34729b79ca0582f1ffd89839b02424cf83854e
-path="res://.godot/imported/New_Mash_Lizard_Frame_1.png-a3f6c747af9fd54f41e1a46106ab51f9.ctex"
+uid="uid://cmlyojxkv5qlt"
+path="res://.godot/imported/Introduction_background .png-fdf1f1bb8ab49da4d49a69dffbc251db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/New_Mash_Lizard_Frame_1.png"
-dest_files=["res://.godot/imported/New_Mash_Lizard_Frame_1.png-a3f6c747af9fd54f41e1a46106ab51f9.ctex"]
+source_file="res://assets/Introduction_background .png"
+dest_files=["res://.godot/imported/Introduction_background .png-fdf1f1bb8ab49da4d49a69dffbc251db.ctex"]
 
 [params]
 
