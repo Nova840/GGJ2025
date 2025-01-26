@@ -11,5 +11,5 @@ func _process(delta: float) -> void:
 	elif player_controller.direction == -1:
 		sprite.flip_h = true
 	
-	if not player_controller.is_alive:
+	if not player_controller.is_alive or player_controller.finished_level:
 		sprite.visible = false
