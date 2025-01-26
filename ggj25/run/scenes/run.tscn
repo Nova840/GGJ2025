@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7hd1jfhtqpbk"]
+[gd_scene load_steps=18 format=3 uid="uid://b7hd1jfhtqpbk"]
 
 [ext_resource type="Texture2D" uid="uid://ga3m68vbfrr2" path="res://assets/platformtilered.png" id="2_adwxx"]
 [ext_resource type="Script" path="res://run/scripts/level_manager.gd" id="3_1h47e"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://f0goisahkds0" path="res://assets/Needle .png" id="4_wnhji"]
 [ext_resource type="Texture2D" uid="uid://bvq1pxa1eri2d" path="res://assets/Thorns.png" id="5_1r0ih"]
 [ext_resource type="Texture2D" uid="uid://dkl72ci1cevtn" path="res://assets/runbackground.png" id="6_mt661"]
+[ext_resource type="PackedScene" uid="uid://bbtbe3mcbinu6" path="res://run/scenes/thorns.tscn" id="7_u7kg0"]
+[ext_resource type="PackedScene" uid="uid://dqpxd3p77ow5n" path="res://run/scenes/moving_platform.tscn" id="8_y0fip"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7se6j"]
 texture = ExtResource("2_adwxx")
@@ -36,6 +38,34 @@ sources/1 = SubResource("TileSetAtlasSource_io3ov")
 sources/2 = SubResource("TileSetAtlasSource_cdttp")
 sources/3 = SubResource("TileSetAtlasSource_d8ane")
 
+[sub_resource type="Curve2D" id="Curve2D_mdgyq"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -148)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_arexh"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -154, -1)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_fe6si"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 139, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_t2d5t"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -93)
+}
+point_count = 2
+
 [node name="Run" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -49,7 +79,26 @@ texture = ExtResource("6_mt661")
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_p2ajl")
 format = 2
-layer_0/tile_data = PackedInt32Array(2490369, 0, 0, 2490373, 0, 0, 2490377, 0, 0, 2490381, 0, 0, 2490385, 0, 0, 2490389, 0, 0, 2490393, 0, 0, 2490397, 0, 0, 2490401, 0, 0, 2490405, 0, 0, 2490409, 0, 0)
+layer_0/tile_data = PackedInt32Array(2490369, 0, 0, 2490373, 0, 0, 2490377, 0, 0, 2490381, 0, 0, 2490385, 0, 0, 2490389, 0, 0, 2490393, 0, 0, 2490397, 0, 0, 2490401, 0, 0, 2490405, 0, 0, 2490409, 0, 0, 2359341, 0, 0, 2228273, 0, 0, 1769515, 0, 0, 1769511, 0, 0, 1835043, 0, 0, 1703967, 0, 0, 1769499, 0, 0, 1769495, 0, 0, 2031669, 0, 0, 1835055, 0, 0, 1114135, 0, 0, 983067, 0, 0, 786463, 0, 0, 786440, 0, 0, 786436, 0, 0, 786432, 0, 0, 196620, 0, 0, 196624, 0, 0, 196628, 0, 0, 196636, 0, 0, 196640, 0, 0, 196644, 0, 0, 196648, 0, 0, 196652, 0, 0, 524358, 0, 0, 524354, 0, 0, 524350, 0, 0)
 
 [node name="LevelManager" type="Node2D" parent="."]
 script = ExtResource("3_1h47e")
+
+[node name="Thorns" parent="." instance=ExtResource("7_u7kg0")]
+position = Vector2(591, 569)
+
+[node name="MovingPlatform1" parent="." instance=ExtResource("8_y0fip")]
+position = Vector2(254, 422)
+curve = SubResource("Curve2D_mdgyq")
+
+[node name="MovingPlatform2" parent="." instance=ExtResource("8_y0fip")]
+position = Vector2(376, 168)
+curve = SubResource("Curve2D_arexh")
+
+[node name="MovingPlatform4" parent="." instance=ExtResource("8_y0fip")]
+position = Vector2(829, 35)
+curve = SubResource("Curve2D_fe6si")
+
+[node name="MovingPlatform3" parent="." instance=ExtResource("8_y0fip")]
+position = Vector2(58, 143)
+curve = SubResource("Curve2D_t2d5t")
