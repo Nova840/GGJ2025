@@ -57,6 +57,7 @@ func _process(delta: float) -> void:
 			$"cock".play()
 			can_fire = false
 			prefired = true
+			manager.next_round([-1] as Array[int])
 			return
 		
 		# Once wait_time is reached, "FIRE!"

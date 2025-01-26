@@ -127,8 +127,11 @@ anchor_bottom = 0.5
 grow_horizontal = 1
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-offset_left = 294.0
-offset_top = -2.0
-offset_right = 814.0
-offset_bottom = 316.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -260.0
+offset_right = 260.0
+offset_bottom = 318.0
+grow_horizontal = 2
 texture = ExtResource("6_xj0dg")
