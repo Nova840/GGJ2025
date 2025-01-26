@@ -1,4 +1,5 @@
 extends Node2D
+class_name LevelManager
 
 var starting_players: Array[int]
 var player_controllers: Array[PlayerController]
@@ -15,6 +16,7 @@ func _init() -> void:
 		add_child(player_scene)
 		player_scene.id = p
 		player_scene.global_position.x = 20 + start_pos_offset
+		player_scene.global_position.y = 300
 		# increase offset for other players
 		start_pos_offset += 5
 		player_controllers.append(player_scene)
@@ -30,10 +32,11 @@ func _process(delta: float) -> void:
 	var players_won: Array[int]
 	var players_eliminated: Array[int]
 	for p in player_controllers:
-		if not p.is_alive:
+		if not p.is_alive and not p.finished_level:
 			players_eliminated.append(_controller_to_id(p))
 		if p.finished_level:
 			players_won.append(_controller_to_id(p))
+			# TODO - remove player visibility
 	
 	# if all alive players have made it to the goal, move on to the next level
 	if players_eliminated.size() + players_won.size() == starting_players.size():

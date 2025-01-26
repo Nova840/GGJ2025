@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://dd8n5ak3ed5fp"
+=======
+uid="uid://dtwjfob0tgbxl"
+>>>>>>> 207d22646b354233a1b5e09af8f6ef20175337e3
 path="res://.godot/imported/Pink_ball_animation_frame_3.png-0dba5dfb0dfd5c409ba3fd62383f86ba.ctex"
 metadata={
 "vram_texture": false
