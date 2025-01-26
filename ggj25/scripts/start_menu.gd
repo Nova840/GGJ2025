@@ -5,10 +5,12 @@ class_name StartMenu
 @onready var player_2_label: Label = $Player2Label
 @onready var player_3_label: Label = $Player3Label
 @onready var player_4_label: Label = $Player4Label
+@onready var start_label = $Label
 
 
 func _ready() -> void:
 	GameManager.reset()
+	start_label.visible = false
 
 
 func _process(delta: float) -> void:
@@ -19,3 +21,6 @@ func _process(delta: float) -> void:
 			GameManager.remove_player(p)
 		if GameManager.get_input_start_just_pressed(p) and GameManager.starting_players.size() > 0:
 			GameManager.next_round([])
+	
+	if GameManager.starting_players.size() > 0:
+		start_label.visible = true
