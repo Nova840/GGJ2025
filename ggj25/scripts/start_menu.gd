@@ -11,7 +11,7 @@ class_name StartMenu
 func _ready() -> void:
 	GameManager.reset()
 	start_label.visible = false
-
+	
 
 func _process(delta: float) -> void:
 	for p in range(-1, 4):

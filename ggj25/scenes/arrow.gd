@@ -51,6 +51,7 @@ func _process(delta: float) -> void:
 		elif direction == Direction.Down:
 			input = GameManager.get_input_down_just_pressed(p)
 		if input and abs(time_created + 1500 - Time.get_ticks_msec()) / 1000 <= time_window:
+			$"sfx".play()
 			players_hit.append(p)
 			sprite.top_level = true
 			sprite.global_position = global_position

@@ -29,7 +29,7 @@ void fragment()
 
     // For a glitch effect, we'll sample the texture 3 times with slight offsets
     // that shift over time, creating a color-separation or "chromatic aberration."
-    
+
     // Offsets for each color channel
     vec2 offset_r = vec2(
         color_separation * 0.5 * sin(t * 2.0),
@@ -43,17 +43,17 @@ void fragment()
         color_separation * 0.5 * sin(t * 1.2),
         -color_separation * 0.5 * cos(t * 1.2)
     );
-    
+
     // Sample the texture separately for R, G, and B with offsets
     float r = texture(TEXTURE, uv + offset_r).r;
     float g = texture(TEXTURE, uv + offset_g).g;
     float b = texture(TEXTURE, uv + offset_b).b;
-    
+
     vec4 final_color = vec4(r, g, b, 1.0);
 
     // Apply color tint or filter
     final_color *= color_shift;
-    
+
     // Output the result
     COLOR = final_color;
 }

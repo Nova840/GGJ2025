@@ -23,12 +23,14 @@ var game_started: bool = false
 var music
 
 var input_timer: float = 0.0      # Tracks how long the player has for the current step
+var manager
 
 func _ready() -> void:
 	# Calculate BPM for the given difficulty
 	var current_bpm = base_bpm * pow(1.1, float(difficulty - 1))
 	beat_duration = 60.0 / current_bpm
-
+	manager = $"/root/GameManager"
+	
 	randomize()
 	print("Simon Says game loaded. Difficulty:", difficulty)
 	print("Current BPM:", current_bpm, "=> each beat is", beat_duration, "seconds.")
@@ -57,6 +59,7 @@ func start_next_round() -> void:
 	if current_round >= rounds_to_play:
 		print("Congratulations! You completed all rounds!")
 		set_process(false)
+		manager.next_round([] as Array[int])
 		return
 
 	current_round += 1
@@ -98,13 +101,13 @@ func check_player_input(delta: float) -> void:
 		game_over()
 		return
 
-	if Input.is_action_just_pressed("ui_up"):
+	if manager.get_input_up_just_pressed(-1):
 		verify_input("up")
-	elif Input.is_action_just_pressed("ui_down"):
+	elif manager.get_input_down_just_pressed(-1):
 		verify_input("down")
-	elif Input.is_action_just_pressed("ui_left"):
+	elif manager.get_input_left_just_pressed(-1):
 		verify_input("left")
-	elif Input.is_action_just_pressed("ui_right"):
+	elif manager.get_input_right_just_pressed(-1):
 		verify_input("right")
 
 func verify_input(direction: String) -> void:
@@ -119,13 +122,14 @@ func verify_input(direction: String) -> void:
 			start_next_round()
 	else:
 		print("WRONG! You pressed", direction)
-		
+	
 		game_over()
 
 func game_over() -> void:
 	print("GAME OVER. You made it to Round:", current_round)
 	$goof.play()
 	set_process(false)
+	manager.next_round([-1] as Array[int]) ## implement failure here
 
 func flash_arrow(direction: String, flash_time: float = 0.3) -> void:
 	var arrow_node = get_arrow_node(direction)

@@ -85,13 +85,14 @@ func _process(delta: float) -> void:
 				synths.play()
 				bass1.volume_db = 1.5
 				bass2.volume_db = -3
+				manager.next_round([] as Array[int])
 			else:
 				print("Too late! You lose!")
 				$"gunshot2".play()
 				$"PlayerCharacter/Bubble".hide()
 				$"Background".color = "#FF0000"
 				lose_character($"PlayerCharacter")
-			reset_duel()
+				manager.next_round([-1] as Array[int])
 			return
 		
 		if timer > reaction_window:
@@ -99,7 +100,7 @@ func _process(delta: float) -> void:
 			$"PlayerCharacter/Bubble".hide()
 			$"Background".color = "#FF0000"
 			lose_character($"PlayerCharacter")
-			reset_duel()
+			manager.next_round([-1] as Array[int])
 
 func start_duel() -> void:
 	# Move your original _ready logic here, so it runs after 1.75s

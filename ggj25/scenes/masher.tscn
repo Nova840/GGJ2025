@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ccs4uqyq1i4ti"]
+[gd_scene load_steps=9 format=3 uid="uid://ccs4uqyq1i4ti"]
 
 [ext_resource type="Script" path="res://scenes/masher.gd" id="1_arlhf"]
 [ext_resource type="FontFile" uid="uid://iivpx384oqhw" path="res://assets/Stock Quote.ttf" id="2_uqhet"]
 [ext_resource type="Texture2D" uid="uid://fj4y4laaeoht" path="res://assets/Mash background .png" id="2_v7xkc"]
 [ext_resource type="Shader" path="res://scenes/drama.gdshader" id="3_iycyb"]
-[ext_resource type="Texture2D" uid="uid://htcuro3305kn" path="res://assets/New_Mash_Lizard_Frame_1.png" id="5_5xvcq"]
+[ext_resource type="Texture2D" uid="uid://d1hvgy3785631" path="res://assets/New_Mash_Lizard_Frame_1.png" id="5_5xvcq"]
+[ext_resource type="Script" path="res://scenes/instruction.gd" id="5_7bj6o"]
 [ext_resource type="Texture2D" uid="uid://juthdiriayym" path="res://assets/Mash_bubble_frame_one.png" id="6_qtg6m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vl8y7"]
@@ -80,6 +81,7 @@ theme_override_font_sizes/font_size = 50
 text = "Mash!"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("5_7bj6o")
 
 [node name="Player" type="Sprite2D" parent="."]
 position = Vector2(-548, 324)

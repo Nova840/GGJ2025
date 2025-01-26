@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dxdqh7j0l6n38"]
+[gd_scene load_steps=12 format=3 uid="uid://dyk0d81fl6a6d"]
 
 [ext_resource type="Script" path="res://scenes/arrow.gd" id="1_t1v1y"]
 [ext_resource type="Texture2D" uid="uid://cj6udgkp8hujc" path="res://assets/arrowgreenpinkup.png" id="2_lffwg"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bmyptk7s7gdlb" path="res://assets/arrowburstdown.png" id="7_ppopn"]
 [ext_resource type="Texture2D" uid="uid://bhgff4fhdmqce" path="res://assets/arrowburstleft.png" id="8_3cpv4"]
 [ext_resource type="Texture2D" uid="uid://715uawlpfm6g" path="res://assets/arrowburstright.png" id="9_uhd2y"]
+[ext_resource type="AudioStream" uid="uid://32xkn1o1y8tw" path="res://assets/sfx/HTS Verbclap 20.wav" id="10_mdo3w"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_s5iha"]
 size = Vector2(128, 128)
@@ -28,3 +29,7 @@ right_texture_popped = ExtResource("9_uhd2y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("PlaceholderTexture2D_s5iha")
+
+[node name="sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_mdo3w")
+pitch_scale = 1.5

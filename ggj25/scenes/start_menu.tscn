@@ -1,14 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://dp00ysmnpthbj"]
+[gd_scene load_steps=7 format=3 uid="uid://dp00ysmnpthbj"]
 
 [ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_7gmsj"]
 [ext_resource type="Script" path="res://scripts/start_player_label.gd" id="2_1bvnr"]
-[ext_resource type="PackedScene" uid="uid://cekbx1g251wm4" path="res://scenes/high_score_table.tscn" id="3_v5ulp"]
+[ext_resource type="Shader" path="res://scenes/drama.gdshader" id="2_gj2cg"]
+[ext_resource type="PackedScene" path="res://scenes/high_score_table.tscn" id="3_v5ulp"]
 [ext_resource type="Texture2D" uid="uid://cmlyojxkv5qlt" path="res://assets/Introduction_background .png" id="4_sfbda"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1lyf5"]
+shader = ExtResource("2_gj2cg")
+shader_parameter/speed = 0.5
+shader_parameter/amplitude = 0.1
+shader_parameter/frequency = 4.0
+shader_parameter/color_shift = Color(1, 1, 1, 1)
+shader_parameter/color_separation = 0.05
 
 [node name="StartMenu" type="Node"]
 script = ExtResource("1_7gmsj")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_1lyf5")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

@@ -1,15 +1,28 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3yw0u8v77ok8"]
+[gd_scene load_steps=13 format=3 uid="uid://cv63q1t11o41u"]
 
+[ext_resource type="Script" path="res://scenes/dance.gd" id="1_edlw4"]
 [ext_resource type="FontFile" uid="uid://iivpx384oqhw" path="res://assets/Stock Quote.ttf" id="1_kcvrd"]
+[ext_resource type="Shader" path="res://scenes/noir.gdshader" id="1_uders"]
+[ext_resource type="Texture2D" uid="uid://2j7u2b7utii" path="res://assets/Danceddrbackground.png" id="2_56rr2"]
 [ext_resource type="Script" path="res://scripts/instruction_label.gd" id="2_phjii"]
 [ext_resource type="Texture2D" uid="uid://cyfkeh7pi8x4v" path="res://assets/arrowsolidblueleft.png" id="3_ay21v"]
 [ext_resource type="Script" path="res://scenes/arrow_spawner.gd" id="4_aamls"]
 [ext_resource type="Texture2D" uid="uid://dcuu6mmkax51" path="res://assets/arrowsolidpinkright.png" id="4_ogsfc"]
 [ext_resource type="Texture2D" uid="uid://dsmwkbjldc4m1" path="res://assets/arrowsolidgreenup.png" id="5_av61p"]
-[ext_resource type="PackedScene" uid="uid://dxdqh7j0l6n38" path="res://scenes/arrow.tscn" id="5_ddqn4"]
+[ext_resource type="PackedScene" uid="uid://dyk0d81fl6a6d" path="res://scenes/arrow.tscn" id="5_ddqn4"]
 [ext_resource type="Texture2D" uid="uid://ivra4epff2t8" path="res://assets/arrowsolidorangedown.png" id="6_xruf4"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cvgpv"]
+shader = ExtResource("1_uders")
+shader_parameter/desaturation = 0.8
+shader_parameter/vignette_strength = 1.0
+shader_parameter/vignette_radius = 1.0
+shader_parameter/color_tint = Color(1, 1, 1, 0.619608)
+shader_parameter/grain_strength = 0.1
+shader_parameter/grain_speed = 1.0
+
 [node name="Dance" type="Node2D"]
+script = ExtResource("1_edlw4")
 
 [node name="Background" type="ColorRect" parent="."]
 anchors_preset = 8
@@ -26,6 +39,11 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0, 0, 0, 1)
+
+[node name="Background2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_cvgpv")
+scale = Vector2(2, 2)
+texture = ExtResource("2_56rr2")
 
 [node name="Instruction" type="Label" parent="."]
 anchors_preset = 8

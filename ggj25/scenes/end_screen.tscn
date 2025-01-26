@@ -1,13 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://4l3goo67h2sb"]
+[gd_scene load_steps=8 format=3 uid="uid://4l3goo67h2sb"]
 
 [ext_resource type="Script" path="res://scripts/end_screen.gd" id="1_876hd"]
+[ext_resource type="Shader" path="res://scenes/drama.gdshader" id="2_5smdc"]
 [ext_resource type="Texture2D" uid="uid://cmlyojxkv5qlt" path="res://assets/Introduction_background .png" id="2_fx1ju"]
-[ext_resource type="PackedScene" uid="uid://cekbx1g251wm4" path="res://scenes/high_score_table.tscn" id="2_q6fpy"]
+[ext_resource type="PackedScene" path="res://scenes/high_score_table.tscn" id="2_q6fpy"]
+[ext_resource type="Shader" path="res://scenes/noir.gdshader" id="5_exv2q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vibq0"]
+shader = ExtResource("2_5smdc")
+shader_parameter/speed = 0.5
+shader_parameter/amplitude = 0.2
+shader_parameter/frequency = 8.0
+shader_parameter/color_shift = Color(1, 1, 1, 1)
+shader_parameter/color_separation = 0.05
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ineft"]
+shader = ExtResource("5_exv2q")
+shader_parameter/desaturation = 0.8
+shader_parameter/vignette_strength = 1.0
+shader_parameter/vignette_radius = 1.0
+shader_parameter/color_tint = Color(1, 1, 1, 1)
+shader_parameter/grain_strength = 0.1
+shader_parameter/grain_speed = 1.0
 
 [node name="EndScreen" type="Node"]
 script = ExtResource("1_876hd")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_vibq0")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -43,6 +63,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 horizontal_alignment = 1
 
 [node name="HighScoreTable" parent="." instance=ExtResource("2_q6fpy")]
+material = SubResource("ShaderMaterial_ineft")
 anchors_preset = 4
 anchor_top = 0.5
 anchor_right = 0.0

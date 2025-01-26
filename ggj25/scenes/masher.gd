@@ -18,6 +18,7 @@ var goal : float = (base_requirement + (difficulty * difficulty_increment))
 
 var frame1 = preload("res://assets/New_Mash_Lizard_Frame_1.png")
 var frame2 = preload("res://assets/New_Mash_Lizard_Frame_2.png")
+var losers = []
 
 func _ready() -> void:
 	# Grab your manager node. Adjust the path to match your actual hierarchy.
@@ -49,9 +50,11 @@ func _process(delta: float) -> void:
 		print("TIME'S UP!")
 		print("You mashed Space %d times!" % mash_count)
 		if (mash_count > goal):
+			manager.next_round([] as Array[int])
 			print("Victory!")
 		else:
 			print("Failure")
+			manager.next_round([-1] as Array[int]) ## implement failure mechanism here
 			
 		# Optionally reset for another round, or you can stop here
 		# For a one-shot:
