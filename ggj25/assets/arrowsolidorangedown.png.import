@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1iq20b22023u"
-path="res://.godot/imported/Blue_ball_animation_frame_2.png-c375a032254280cc87a090d27511a110.ctex"
+uid="uid://b3jkuxj355d8r"
+path="res://.godot/imported/arrowsolidorangedown.png-0a96af8e44f09b55d2c2f49bd273cd4c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Blue_ball_animation_frame_2.png"
-dest_files=["res://.godot/imported/Blue_ball_animation_frame_2.png-c375a032254280cc87a090d27511a110.ctex"]
+source_file="res://assets/arrowsolidorangedown.png"
+dest_files=["res://.godot/imported/arrowsolidorangedown.png-0a96af8e44f09b55d2c2f49bd273cd4c.ctex"]
 
 [params]
 
