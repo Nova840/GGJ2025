@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 		
 	var direction_vec = GameManager.get_input_move(id)
 	
-	if direction_vec.y < 0 and is_on_floor():
+	if GameManager.get_input_action_1(id) and is_on_floor():
 		velocity.y = jump_power * jump_multiplier
 	
 	direction = direction_vec.x
