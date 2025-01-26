@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://scenes/masher.gd" id="1_arlhf"]
 [ext_resource type="FontFile" uid="uid://iivpx384oqhw" path="res://assets/Stock Quote.ttf" id="2_uqhet"]
-[ext_resource type="Texture2D" uid="uid://dfq7rr0no3hmf" path="res://assets/Mash background .png" id="2_v7xkc"]
+[ext_resource type="Texture2D" uid="uid://fj4y4laaeoht" path="res://assets/Mash background .png" id="2_v7xkc"]
 [ext_resource type="Shader" path="res://scenes/drama.gdshader" id="3_iycyb"]
-[ext_resource type="Texture2D" uid="uid://ctpdh2dmcgo8a" path="res://assets/Mash_lizard_frame_one .png" id="5_hbcih"]
-[ext_resource type="Texture2D" uid="uid://cfxxbhm23g8th" path="res://assets/Mash_bubble_frame_one.png" id="6_qtg6m"]
+[ext_resource type="Texture2D" uid="uid://htcuro3305kn" path="res://assets/New_Mash_Lizard_Frame_1.png" id="5_5xvcq"]
+[ext_resource type="Texture2D" uid="uid://juthdiriayym" path="res://assets/Mash_bubble_frame_one.png" id="6_qtg6m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vl8y7"]
 shader = ExtResource("3_iycyb")
@@ -82,10 +82,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Player" type="Sprite2D" parent="."]
-texture = ExtResource("5_hbcih")
+position = Vector2(-548, 324)
+texture = ExtResource("5_5xvcq")
 
 [node name="Boulder" type="Sprite2D" parent="Player"]
 modulate = Color(1, 1, 1, 0.631373)
-position = Vector2(-364, 74)
+position = Vector2(140, -112)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("6_qtg6m")

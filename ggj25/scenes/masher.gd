@@ -16,6 +16,8 @@ var base_requirement : int = 65
 var difficulty_increment : int = 10
 var goal : float = (base_requirement + (difficulty * difficulty_increment))
 
+var frame1 = preload("res://assets/New_Mash_Lizard_Frame_1.png")
+var frame2 = preload("res://assets/New_Mash_Lizard_Frame_2.png")
 
 func _ready() -> void:
 	# Grab your manager node. Adjust the path to match your actual hierarchy.
@@ -62,8 +64,13 @@ func _process(delta: float) -> void:
 	#    (Using manager's version of "just pressed")
 	if manager.get_input_action_1_just_pressed(-1):
 		mash_count += 1
-		var increment = 140/goal
+		var increment = 200/goal
 		$Player.set_position(Vector2($Player.get_position().x + (increment * 5), $Player.get_position().y - (3 * increment)))
+		if (mash_count%2 == 0):
+			$Player.texture = frame1
+		else:
+			$Player.texture = frame2
+		$Player/Boulder.rotate(0.1)
 		if mash_count > goal:
 			$"Background B".show()
 		#$"Progress".set_position(Vector2($"Progress".get_position().x, max(-540, 540 - ((540*2) * (mash_count/goal)))))
