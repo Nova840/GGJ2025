@@ -5,4 +5,5 @@
 [node name="GameManager" type="Node"]
 script = ExtResource("1_d10d2")
 game_scene_paths = Array[String](["res://scenes/dance.tscn", "res://run/scenes/run.tscn", "res://scenes/memorize.tscn", "res://scenes/duel.tscn", "res://scenes/masher.tscn"])
+game_scene_paths_multiplayer = Array[String](["res://run/scenes/run.tscn", "res://scenes/dance.tscn"])
 dont_repeat_rounds = 2
