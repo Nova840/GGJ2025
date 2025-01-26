@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://bq86abyh22dpi"
+=======
+uid="uid://bh0gd1w86v0pn"
+>>>>>>> 47a796b524f13f144462bfe2e9f4d71511f78d0f
 path="res://.godot/imported/Duel Background .png-5f7b0072a721fe11dcd1365b1bf7b21e.ctex"
 metadata={
 "vram_texture": false

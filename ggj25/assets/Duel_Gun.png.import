@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://ducr0srdis1q2"
+=======
+uid="uid://7xctjw1sd2ot"
+>>>>>>> 47a796b524f13f144462bfe2e9f4d71511f78d0f
 path="res://.godot/imported/Duel_Gun.png-8a7dbb5dd79787640bd776e63fbbeea3.ctex"
 metadata={
 "vram_texture": false
