@@ -9,6 +9,7 @@ radius = 12.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_4y3d7")
+jump_power = 13.0
 
 [node name="PlayerAnimator" type="Node2D" parent="." node_paths=PackedStringArray("player_controller", "sprite")]
 script = ExtResource("2_e26g4")
