@@ -5,7 +5,7 @@ class_name StartMenu
 @onready var player_2_label: Label = $Player2Label
 @onready var player_3_label: Label = $Player3Label
 @onready var player_4_label: Label = $Player4Label
-@onready var start_label = $Label
+@onready var start_label = $StartLabel
 
 
 func _ready() -> void:

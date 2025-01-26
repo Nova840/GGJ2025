@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b7hd1jfhtqpbk"]
+[gd_scene load_steps=22 format=3 uid="uid://b7hd1jfhtqpbk"]
 
 [ext_resource type="Texture2D" uid="uid://ga3m68vbfrr2" path="res://assets/platformtilered.png" id="2_adwxx"]
 [ext_resource type="Script" path="res://run/scripts/level_manager.gd" id="3_1h47e"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dqpxd3p77ow5n" path="res://run/scenes/moving_platform.tscn" id="8_y0fip"]
 [ext_resource type="PackedScene" uid="uid://csjheu7eaogoe" path="res://run/scenes/goal.tscn" id="9_xjock"]
 [ext_resource type="PackedScene" uid="uid://dxtejurkcqvwy" path="res://run/scenes/game_over_zone.tscn" id="10_nel3l"]
+[ext_resource type="FontFile" uid="uid://iivpx384oqhw" path="res://assets/Stock Quote.ttf" id="11_0soam"]
+[ext_resource type="Script" path="res://scripts/instruction_label.gd" id="12_snhjr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7se6j"]
 texture = ExtResource("2_adwxx")
@@ -122,3 +124,26 @@ position = Vector2(741, 1655)
 
 [node name="GameOverZone3" parent="." instance=ExtResource("10_nel3l")]
 position = Vector2(2161, 153)
+
+[node name="Instruction" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 471.0
+offset_top = 290.0
+offset_right = 632.0
+offset_bottom = 375.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("11_0soam")
+theme_override_font_sizes/font_size = 50
+text = "Run!"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("12_snhjr")
