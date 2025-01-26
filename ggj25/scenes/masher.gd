@@ -12,7 +12,7 @@ var mash_count: int = 0
 
 # --- DIFFICULTY
 var difficulty : int = 0
-var base_requirement : int = 60
+var base_requirement : int = 65
 var difficulty_increment : int = 10
 var goal : float = (base_requirement + (difficulty * difficulty_increment))
 
@@ -41,6 +41,7 @@ func _process(delta: float) -> void:
 
 	# 2) Once the game has started, decrement the mash timer
 	mash_timer -= delta
+	#$"Background B".hide()
 	if mash_timer <= 0.0:
 		# Time is up!
 		print("TIME'S UP!")
@@ -61,7 +62,12 @@ func _process(delta: float) -> void:
 	#    (Using manager's version of "just pressed")
 	if manager.get_input_action_1_just_pressed(-1):
 		mash_count += 1
-		$"Progress".set_position(Vector2($"Progress".get_position().x, max(-540, 540 - ((540*2) * (mash_count/goal)))))
+		var increment = 140/goal
+		$Player.set_position(Vector2($Player.get_position().x + (increment * 5), $Player.get_position().y - (3 * increment)))
+		if mash_count > goal:
+			$"Background B".show()
+		#$"Progress".set_position(Vector2($"Progress".get_position().x, max(-540, 540 - ((540*2) * (mash_count/goal)))))
 		#$"Background".color = Color(1, 1, 1) # White flash
 		print("Mash count: %d" % mash_count)
 		print("Y position: %d" % $"Progress".get_position().y)
+		#$"Background B".show()

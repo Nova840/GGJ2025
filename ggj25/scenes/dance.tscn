@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3yw0u8v77ok8"]
+[gd_scene load_steps=9 format=3 uid="uid://cv63q1t11o41u"]
 
 [ext_resource type="FontFile" uid="uid://iivpx384oqhw" path="res://assets/Stock Quote.ttf" id="1_kcvrd"]
 [ext_resource type="Script" path="res://scripts/instruction_label.gd" id="2_phjii"]
@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://scenes/arrow_spawner.gd" id="4_aamls"]
 [ext_resource type="Texture2D" uid="uid://dcuu6mmkax51" path="res://assets/arrowsolidpinkright.png" id="4_ogsfc"]
 [ext_resource type="Texture2D" uid="uid://dsmwkbjldc4m1" path="res://assets/arrowsolidgreenup.png" id="5_av61p"]
-[ext_resource type="PackedScene" uid="uid://dxdqh7j0l6n38" path="res://scenes/arrow.tscn" id="5_ddqn4"]
+[ext_resource type="PackedScene" path="res://scenes/arrow.tscn" id="5_ddqn4"]
 [ext_resource type="Texture2D" uid="uid://ivra4epff2t8" path="res://assets/arrowsolidorangedown.png" id="6_xruf4"]
 
 [node name="Dance" type="Node2D"]

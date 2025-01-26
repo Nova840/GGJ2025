@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bwm4g05emr4oc"
+path="res://.godot/imported/HTS Buildups 160BPM 04 - Kicks.wav-490ccac38eabe9cd35125ebec18ed0d9.sample"
+
+[deps]
+
+source_file="res://assets/sfx/HTS Buildups 160BPM 04 - Kicks.wav"
+dest_files=["res://.godot/imported/HTS Buildups 160BPM 04 - Kicks.wav-490ccac38eabe9cd35125ebec18ed0d9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

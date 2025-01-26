@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0blpqfaaepjx"]
+[gd_scene load_steps=17 format=3 uid="uid://d0blpqfaaepjx"]
 
 [ext_resource type="Script" path="res://scenes/memorize.gd" id="1_v2pw0"]
 [ext_resource type="FontFile" uid="uid://iivpx384oqhw" path="res://assets/Stock Quote.ttf" id="2_jguag"]
@@ -7,10 +7,35 @@
 [ext_resource type="Script" path="res://scripts/instruction_label.gd" id="3_ho5pv"]
 [ext_resource type="Texture2D" uid="uid://dsmwkbjldc4m1" path="res://assets/arrowsolidgreenup.png" id="4_1tqs6"]
 [ext_resource type="Texture2D" uid="uid://honok67ft1ar" path="res://assets/arrowsblueorangeleft.png" id="5_0x4qd"]
+[ext_resource type="Texture2D" uid="uid://bmyptk7s7gdlb" path="res://assets/arrowburstdown.png" id="8_3lfvf"]
 [ext_resource type="Texture2D" uid="uid://cj6udgkp8hujc" path="res://assets/arrowgreenpinkup.png" id="8_f72q0"]
+[ext_resource type="Texture2D" uid="uid://715uawlpfm6g" path="res://assets/arrowburstright.png" id="9_72iur"]
+[ext_resource type="AudioStream" uid="uid://b7l8mjl2xtgv5" path="res://assets/sfx/HTS Impact 20.wav" id="9_bfrfg"]
+[ext_resource type="AudioStream" uid="uid://32xkn1o1y8tw" path="res://assets/sfx/HTS Verbclap 20.wav" id="9_jqybq"]
+[ext_resource type="AudioStream" uid="uid://bwm4g05emr4oc" path="res://assets/sfx/HTS Buildups 160BPM 04 - Kicks.wav" id="9_kmg78"]
+[ext_resource type="Script" path="res://scenes/simonbeat.gd" id="10_sd34e"]
+[ext_resource type="Texture2D" uid="uid://d088jhug1ptn" path="res://assets/arrowburstup.png" id="11_yvpuv"]
+[ext_resource type="Texture2D" uid="uid://bhgff4fhdmqce" path="res://assets/arrowburstleft.png" id="12_nchsk"]
 
 [node name="Memorize" type="Node2D"]
 script = ExtResource("1_v2pw0")
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
 
 [node name="Arrows_Example" type="Node2D" parent="."]
 position = Vector2(0, -200)
@@ -64,17 +89,53 @@ visible = false
 texture = ExtResource("2_mnwra")
 offset = Vector2(-85, 0)
 
+[node name="Down" type="Sprite2D" parent="Arrows_Flash/Down"]
+z_index = -1
+position = Vector2(2, 9)
+texture = ExtResource("8_3lfvf")
+offset = Vector2(-85, 0)
+
 [node name="Right" type="Sprite2D" parent="Arrows_Flash"]
 visible = false
 texture = ExtResource("3_6a2br")
 offset = Vector2(250, 0)
+
+[node name="Right" type="Sprite2D" parent="Arrows_Flash/Right"]
+z_index = -1
+position = Vector2(341, 1)
+texture = ExtResource("9_72iur")
+offset = Vector2(-85, 0)
 
 [node name="Up" type="Sprite2D" parent="Arrows_Flash"]
 visible = false
 texture = ExtResource("8_f72q0")
 offset = Vector2(-250, 0)
 
+[node name="Up" type="Sprite2D" parent="Arrows_Flash/Up"]
+z_index = -1
+position = Vector2(-166, -10)
+texture = ExtResource("11_yvpuv")
+offset = Vector2(-85, 0)
+
 [node name="Left" type="Sprite2D" parent="Arrows_Flash"]
 visible = false
 texture = ExtResource("5_0x4qd")
 offset = Vector2(85, 0)
+
+[node name="Left" type="Sprite2D" parent="Arrows_Flash/Left"]
+z_index = -1
+position = Vector2(161, 0)
+texture = ExtResource("12_nchsk")
+offset = Vector2(-85, 0)
+
+[node name="beat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_kmg78")
+script = ExtResource("10_sd34e")
+
+[node name="goof" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_bfrfg")
+
+[node name="sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_jqybq")
+
+[connection signal="finished" from="beat" to="." method="_on_finished"]
