@@ -19,7 +19,7 @@ func set_label_text() -> void:
 	if GameManager.starting_players.size() <= player_index:
 		text = no_player_text
 	else:
-		var player := GameManager.starting_players[player_index]
+		var player: int = GameManager.starting_players[player_index]
 		if player < 0:
 			text = "Keyboard"
 		else:
