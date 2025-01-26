@@ -30,7 +30,7 @@ func _ready() -> void:
 	var current_bpm = base_bpm * pow(1.1, float(difficulty - 1))
 	beat_duration = 60.0 / current_bpm
 	manager = $"/root/GameManager"
-	
+	difficulty = manager.rounds_completed/5
 	randomize()
 	print("Simon Says game loaded. Difficulty:", difficulty)
 	print("Current BPM:", current_bpm, "=> each beat is", beat_duration, "seconds.")

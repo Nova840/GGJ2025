@@ -12,7 +12,7 @@ var reset_time: float = 4.0
 var timer: float = 0.0           # Track elapsed time
 var can_fire: bool = false       # Whether the player is allowed to fire
 var difficulty: int = 0          # The higher this is, the shorter the reaction window
-var reaction_window: float = 8.0   # Time window to succeed after "FIRE!"
+var reaction_window: float = 2.0   # Time window to succeed after "FIRE!"
 var prefired = false
 
 func _ready() -> void:
@@ -43,6 +43,7 @@ func _process(delta: float) -> void:
 	
 	# 2) Once the game is started, run the duel logic as before
 	var manager = $"/root/GameManager"  # or $"MyNode"
+	difficulty = manager.rounds_completed/5
 	
 	#if (music.playing != true):
 	#	music.play()

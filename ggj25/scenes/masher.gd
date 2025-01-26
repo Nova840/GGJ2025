@@ -23,7 +23,7 @@ var losers = []
 func _ready() -> void:
 	# Grab your manager node. Adjust the path to match your actual hierarchy.
 	manager = $"/root/GameManager"
-	
+	difficulty = manager.rounds_completed/5
 	# Print or display a "Get ready!" message. You could also:
 	# - play a "countdown" sound
 	# - show a UI label
