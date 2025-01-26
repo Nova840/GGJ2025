@@ -166,7 +166,7 @@ func get_arrow_node(direction: String) -> Node:
 func _on_finished() -> void:
 	# Calculate beat duration based on current BPM
 	var current_bpm = base_bpm * pow(1.1, float(difficulty - 1))
-	var beat_duration = 60.0 / current_bpm
+	beat_duration = 60.0 / current_bpm
 
 	# Play the beat sound
 	$beat.play()
