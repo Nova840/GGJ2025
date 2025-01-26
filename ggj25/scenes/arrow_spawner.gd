@@ -14,8 +14,6 @@ class_name ArrowSpawner
 	arrow_receptor_down
 ]
 
-@onready var timer: Timer = $Timer
-
 @export var arrow: PackedScene
 
 @export var spawn_distance: float
@@ -26,10 +24,10 @@ var elapsed_time: float = 0
 
 var players_lost: Array[int]
 
+var beats: int = 0
 
 func _ready() -> void:
-	timer.timeout.connect(spawn_arrow)
-	spawn_arrow()
+	MusicPlayer.beat.connect(spawn_arrow)
 
 
 func _process(delta: float) -> void:
@@ -39,6 +37,8 @@ func _process(delta: float) -> void:
 
 
 func spawn_arrow() -> void:
+	beats += 1
+	if beats % 2 == 1: return
 	var spawn_receptor := all_arrow_receptors[randi_range(0, all_arrow_receptors.size() - 1)]
 	var arrow_instantiated := arrow.instantiate() as Arrow
 	arrow_instantiated.global_position = spawn_receptor.global_position
@@ -55,6 +55,7 @@ func spawn_arrow() -> void:
 		arrow_instantiated.direction = Arrow.Direction.Down
 
 	add_child(arrow_instantiated)
+
 
 func add_players_to_eliminated(players: Array[int]):
 	for p in players:
