@@ -7,6 +7,11 @@ class_name Arrow
 @export var speed: float
 @export var time_window: float
 
+@export var up_texture: Texture2D
+@export var down_texture: Texture2D
+@export var left_texture: Texture2D
+@export var right_texture: Texture2D
+
 var arrow_spawner: ArrowSpawner
 
 var time_created: float
@@ -19,6 +24,14 @@ enum Direction { Up, Down, Left, Right }
 
 func _ready() -> void:
 	time_created = Time.get_ticks_msec()
+	if direction == Direction.Left:
+		sprite.texture = left_texture
+	elif direction == Direction.Right:
+		sprite.texture = right_texture
+	elif direction == Direction.Up:
+		sprite.texture = up_texture
+	elif direction == Direction.Down:
+		sprite.texture = down_texture
 
 
 func _process(delta: float) -> void:

@@ -1,15 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3yw0u8v77ok8"]
+[gd_scene load_steps=9 format=3 uid="uid://d3yw0u8v77ok8"]
 
 [ext_resource type="FontFile" uid="uid://iivpx384oqhw" path="res://assets/Stock Quote.ttf" id="1_kcvrd"]
 [ext_resource type="Script" path="res://scripts/instruction_label.gd" id="2_phjii"]
+[ext_resource type="Texture2D" uid="uid://cyfkeh7pi8x4v" path="res://assets/arrowsolidblueleft.png" id="3_ay21v"]
 [ext_resource type="Script" path="res://scenes/arrow_spawner.gd" id="4_aamls"]
+[ext_resource type="Texture2D" uid="uid://dcuu6mmkax51" path="res://assets/arrowsolidpinkright.png" id="4_ogsfc"]
+[ext_resource type="Texture2D" uid="uid://dsmwkbjldc4m1" path="res://assets/arrowsolidgreenup.png" id="5_av61p"]
 [ext_resource type="PackedScene" uid="uid://dxdqh7j0l6n38" path="res://scenes/arrow.tscn" id="5_ddqn4"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_x2i7c"]
-size = Vector2(128, 128)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nvmd"]
-size = Vector2(128, 128)
+[ext_resource type="Texture2D" uid="uid://ivra4epff2t8" path="res://assets/arrowsolidorangedown.png" id="6_xruf4"]
 
 [node name="Dance" type="Node2D"]
 
@@ -55,41 +53,29 @@ script = ExtResource("2_phjii")
 [node name="Arrow Receptors" type="Node2D" parent="."]
 position = Vector2(0, -200)
 
-[node name="Arrow Receptor LEFT" type="Area2D" parent="Arrow Receptors"]
+[node name="Arrow Receptor LEFT" type="Node2D" parent="Arrow Receptors"]
 position = Vector2(100, 0)
 
 [node name="Sprite" type="Sprite2D" parent="Arrow Receptors/Arrow Receptor LEFT"]
-texture = SubResource("PlaceholderTexture2D_x2i7c")
+texture = ExtResource("3_ay21v")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Arrow Receptors/Arrow Receptor LEFT"]
-shape = SubResource("RectangleShape2D_8nvmd")
-
-[node name="Arrow Receptor RIGHT" type="Area2D" parent="Arrow Receptors"]
+[node name="Arrow Receptor RIGHT" type="Node2D" parent="Arrow Receptors"]
 position = Vector2(300, 0)
 
 [node name="Sprite" type="Sprite2D" parent="Arrow Receptors/Arrow Receptor RIGHT"]
-texture = SubResource("PlaceholderTexture2D_x2i7c")
+texture = ExtResource("4_ogsfc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Arrow Receptors/Arrow Receptor RIGHT"]
-shape = SubResource("RectangleShape2D_8nvmd")
-
-[node name="Arrow Receptor UP" type="Area2D" parent="Arrow Receptors"]
+[node name="Arrow Receptor UP" type="Node2D" parent="Arrow Receptors"]
 position = Vector2(-300, 0)
 
 [node name="Sprite" type="Sprite2D" parent="Arrow Receptors/Arrow Receptor UP"]
-texture = SubResource("PlaceholderTexture2D_x2i7c")
+texture = ExtResource("5_av61p")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Arrow Receptors/Arrow Receptor UP"]
-shape = SubResource("RectangleShape2D_8nvmd")
-
-[node name="Arrow Receptor DOWN" type="Area2D" parent="Arrow Receptors"]
+[node name="Arrow Receptor DOWN" type="Node2D" parent="Arrow Receptors"]
 position = Vector2(-100, 0)
 
 [node name="Sprite" type="Sprite2D" parent="Arrow Receptors/Arrow Receptor DOWN"]
-texture = SubResource("PlaceholderTexture2D_x2i7c")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Arrow Receptors/Arrow Receptor DOWN"]
-shape = SubResource("RectangleShape2D_8nvmd")
+texture = ExtResource("6_xruf4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

@@ -2,12 +2,12 @@ extends Node2D
 class_name ArrowSpawner
 
 
-@onready var arrow_receptor_left: Area2D = $"../Arrow Receptors/Arrow Receptor LEFT"
-@onready var arrow_receptor_right: Area2D = $"../Arrow Receptors/Arrow Receptor RIGHT"
-@onready var arrow_receptor_up: Area2D = $"../Arrow Receptors/Arrow Receptor UP"
-@onready var arrow_receptor_down: Area2D = $"../Arrow Receptors/Arrow Receptor DOWN"
+@onready var arrow_receptor_left: Node2D = $"../Arrow Receptors/Arrow Receptor LEFT"
+@onready var arrow_receptor_right: Node2D = $"../Arrow Receptors/Arrow Receptor RIGHT"
+@onready var arrow_receptor_up: Node2D = $"../Arrow Receptors/Arrow Receptor UP"
+@onready var arrow_receptor_down: Node2D = $"../Arrow Receptors/Arrow Receptor DOWN"
 
-@onready var all_arrow_receptors: Array[Area2D] = [
+@onready var all_arrow_receptors: Array[Node2D] = [
 	arrow_receptor_left,
 	arrow_receptor_right,
 	arrow_receptor_up,
