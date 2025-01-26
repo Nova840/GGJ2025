@@ -11,17 +11,15 @@ config_version=5
 [application]
 
 config/name="GGJ25"
-<<<<<<< HEAD
 run/main_scene="res://scenes/memorize.tscn"
-=======
-run/main_scene="res://scenes/start_menu.tscn"
->>>>>>> ce59ccc7ce8557e9636b60d7e231c77f7be5c7ab
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
+<<<<<<<HEADrun/main_scene="res://scenes/memorize.tscn"
 
 [autoload]
 
 GameManager="*res://scenes/game_manager.tscn"
+MusicPlayer="*res://scenes/MusicPlayer.tscn"
 
 [debug]
 

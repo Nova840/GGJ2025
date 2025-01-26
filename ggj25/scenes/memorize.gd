@@ -101,6 +101,8 @@ func highlight_direction(direction: String) -> void:
 	# Here we just do a debug print.
 	# E.g.:
 	#   $UpArrow.flash() if direction == "up"
+	if direction == "Down":
+		$"Arrows_Flash/Down"
 	pass
 
 var input_timer: float = 0.0  # tracks how long the player has for the current step
