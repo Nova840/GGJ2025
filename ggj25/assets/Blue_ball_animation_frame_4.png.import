@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://cujmx7gxk8tqg"
+=======
+uid="uid://rm52k3rt843"
+>>>>>>> ce59ccc7ce8557e9636b60d7e231c77f7be5c7ab
 path="res://.godot/imported/Blue_ball_animation_frame_4.png-a5a84f9a057d537c9556c8e032aa03ea.ctex"
 metadata={
 "vram_texture": false

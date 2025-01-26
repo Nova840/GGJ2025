@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxdqh7j0l6n38"]
+
+[ext_resource type="Script" path="res://scenes/arrow.gd" id="1_t1v1y"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_s5iha"]
+size = Vector2(128, 128)
+
+[node name="Arrow" type="Node2D"]
+script = ExtResource("1_t1v1y")
+speed = 500.0
+time_window = 0.15
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_s5iha")

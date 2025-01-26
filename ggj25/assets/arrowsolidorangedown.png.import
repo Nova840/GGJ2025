@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://b3jkuxj355d8r"
+=======
+uid="uid://dl4bp71i7e8dm"
+>>>>>>> ce59ccc7ce8557e9636b60d7e231c77f7be5c7ab
 path="res://.godot/imported/arrowsolidorangedown.png-0a96af8e44f09b55d2c2f49bd273cd4c.ctex"
 metadata={
 "vram_texture": false

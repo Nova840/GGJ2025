@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://bnkrfueolyoxn"
+=======
+uid="uid://bktigc65ua2e0"
+>>>>>>> ce59ccc7ce8557e9636b60d7e231c77f7be5c7ab
 path="res://.godot/imported/arrowgreenpinkup.png-49fa9a8056a38542667af227619acd35.ctex"
 metadata={
 "vram_texture": false

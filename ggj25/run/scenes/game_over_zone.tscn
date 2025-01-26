@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxtejurkcqvwy"]
+
+[ext_resource type="Script" path="res://run/scenes/game_over_zone.gd" id="1_bkvmq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cshyj"]
+
+[node name="GameOverZone" type="Area2D"]
+script = ExtResource("1_bkvmq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_cshyj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

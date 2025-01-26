@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://bkbmnjqlfhl0l"
+=======
+uid="uid://f51fp0f26xj3"
+>>>>>>> ce59ccc7ce8557e9636b60d7e231c77f7be5c7ab
 path="res://.godot/imported/arrowburstup.png-1fc88c9acd15413513015819ec969606.ctex"
 metadata={
 "vram_texture": false
