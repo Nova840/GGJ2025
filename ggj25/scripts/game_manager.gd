@@ -72,6 +72,62 @@ func get_input_start_just_pressed(player_controller: int) -> bool:
 		return Input.is_action_just_pressed("Joypad " + str(player_controller) + " Start")
 
 
+func get_input_up(player_controller: int) -> bool:
+	if player_controller < 0:
+		return Input.is_action_pressed("Keyboard Up")
+	else:
+		return Input.is_action_pressed("Joypad " + str(player_controller) + " Up")
+
+
+func get_input_up_just_pressed(player_controller: int) -> bool:
+	if player_controller < 0:
+		return Input.is_action_just_pressed("Keyboard Up")
+	else:
+		return Input.is_action_just_pressed("Joypad " + str(player_controller) + " Up")
+
+
+func get_input_down(player_controller: int) -> bool:
+	if player_controller < 0:
+		return Input.is_action_pressed("Keyboard Down")
+	else:
+		return Input.is_action_pressed("Joypad " + str(player_controller) + " Down")
+
+
+func get_input_down_just_pressed(player_controller: int) -> bool:
+	if player_controller < 0:
+		return Input.is_action_just_pressed("Keyboard Down")
+	else:
+		return Input.is_action_just_pressed("Joypad " + str(player_controller) + " Down")
+
+
+func get_input_left(player_controller: int) -> bool:
+	if player_controller < 0:
+		return Input.is_action_pressed("Keyboard Left")
+	else:
+		return Input.is_action_pressed("Joypad " + str(player_controller) + " Left")
+
+
+func get_input_left_just_pressed(player_controller: int) -> bool:
+	if player_controller < 0:
+		return Input.is_action_just_pressed("Keyboard Left")
+	else:
+		return Input.is_action_just_pressed("Joypad " + str(player_controller) + " Left")
+
+
+func get_input_right(player_controller: int) -> bool:
+	if player_controller < 0:
+		return Input.is_action_pressed("Keyboard Right")
+	else:
+		return Input.is_action_pressed("Joypad " + str(player_controller) + " Right")
+
+
+func get_input_right_just_pressed(player_controller: int) -> bool:
+	if player_controller < 0:
+		return Input.is_action_just_pressed("Keyboard Right")
+	else:
+		return Input.is_action_just_pressed("Joypad " + str(player_controller) + " Right")
+
+
 func next_round(players_eliminated: Array[int]) -> void:
 	for p in players_eliminated:
 		if alive_players.has(p):

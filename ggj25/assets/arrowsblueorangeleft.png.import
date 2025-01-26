@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cskrhrpq6sbfm"
-path="res://.godot/imported/Green_ball_animation_frame_2.png-855606130637862d6e0d3495d552cae4.ctex"
+uid="uid://yg0rh3e01lm4"
+path="res://.godot/imported/arrowsblueorangeleft.png-1294716d692a3372d0e78ce8a0081734.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Green_ball_animation_frame_2.png"
-dest_files=["res://.godot/imported/Green_ball_animation_frame_2.png-855606130637862d6e0d3495d552cae4.ctex"]
+source_file="res://assets/arrowsblueorangeleft.png"
+dest_files=["res://.godot/imported/arrowsblueorangeleft.png-1294716d692a3372d0e78ce8a0081734.ctex"]
 
 [params]
 
