@@ -14,7 +14,6 @@ config/name="GGJ25"
 run/main_scene="res://scenes/start_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
-<<<<<<<HEADrun/main_scene="res://scenes/memorize.tscn"
 
 [autoload]
 
