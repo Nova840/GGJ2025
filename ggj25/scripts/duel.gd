@@ -1,4 +1,5 @@
 extends Node
+var gunfire_texture = preload("res://assets/Duel_Gun_Fire_Animation .png")
 
 var startup_delay: float = 1.75  # Wait 1.75 seconds before the game actually starts
 var game_started: bool = false   # We'll flip this once the delay is over
@@ -7,8 +8,9 @@ var wait_time: float = 0.0       # How long until "FIRE!"
 var reset_time: float = 4.0
 var timer: float = 0.0           # Track elapsed time
 var can_fire: bool = false       # Whether the player is allowed to fire
-var difficulty: int = 3          # The higher this is, the shorter the reaction window
-var reaction_window: float = 3   # Time window to succeed after "FIRE!"
+var difficulty: int = 0          # The higher this is, the shorter the reaction window
+var reaction_window: float = 8.0   # Time window to succeed after "FIRE!"
+var prefired = false
 
 func _ready() -> void:
 	# We won't do any randomization or "Get ready!" messages yet.
@@ -38,14 +40,18 @@ func _process(delta: float) -> void:
 		# If user presses early, it's a loss
 		if manager.get_input_action_1_just_pressed(-1):
 			print("You fired too early! You lose!")
-			reset_duel()
+			$"cock".play()
+			can_fire = false
+			prefired = true
 			return
 		
 		# Once wait_time is reached, "FIRE!"
 		if timer >= wait_time:
-			can_fire = true
+			if prefired == false:
+				can_fire = true
 			timer = 0.0
 			$"Background".color = "#FFFFFF"
+			$"Background_Duel".hide()
 			print("FIRE!")
 	else:
 		timer += delta
@@ -53,18 +59,25 @@ func _process(delta: float) -> void:
 		if manager.get_input_action_1_just_pressed(-1):
 			if timer <= reaction_window:
 				print("Success! You fired in time!")
+				$"PlayerCharacter/Gun".texture = gunfire_texture
+				$"EnemyCharacter/Bubble".hide()
 				$"gunshot".play()
 				$"Background".color = "#00FF00"
+				lose_character($"EnemyCharacter")
 			else:
 				print("Too late! You lose!")
 				$"gunshot2".play()
+				$"PlayerCharacter/Bubble".hide()
 				$"Background".color = "#FF0000"
+				lose_character($"PlayerCharacter")
 			reset_duel()
 			return
 		
 		if timer > reaction_window:
 			print("Too late! You lose!")
+			$"PlayerCharacter/Bubble".hide()
 			$"Background".color = "#FF0000"
+			lose_character($"PlayerCharacter")
 			reset_duel()
 
 func start_duel() -> void:
@@ -74,7 +87,7 @@ func start_duel() -> void:
 	wait_time = randf_range(4, 10)
 	
 	# Adjust reaction window based on difficulty
-	reaction_window = 0.5 - (difficulty * 0.05)
+	reaction_window = reaction_window - (difficulty * 0.5)
 	if reaction_window < 0.1:
 		reaction_window = 0.1
 	
@@ -85,9 +98,18 @@ func start_duel() -> void:
 func reset_duel() -> void:
 	timer = 0.0
 	can_fire = false
+	prefired = false
 	$"Background".color = "#000000"
-	
+	$"Background_Duel".show()
 	# Randomize wait_time again
 	wait_time = randf_range(4, 10)
 	print("Get ready! Don't fire yet...")
 	$"cock".play()
+
+func lose_character(character_node: Node2D) -> void:
+	# This creates a Tween and starts animating the node's `position.y`
+	# to a large positive value (e.g. 1500) over 1 second.
+	var tween = get_tree().create_tween()
+	tween.tween_property(character_node, "position:y", 1500, 1.0) \
+		.set_ease(Tween.EASE_IN) \
+		.set_trans(Tween.TRANS_QUAD)

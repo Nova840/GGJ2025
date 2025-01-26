@@ -1,10 +1,36 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmhe6vp64x8ev"]
+[gd_scene load_steps=17 format=3 uid="uid://dmhe6vp64x8ev"]
 
 [ext_resource type="Script" path="res://scripts/duel.gd" id="1_ah3ox"]
 [ext_resource type="FontFile" uid="uid://iivpx384oqhw" path="res://assets/Stock Quote.ttf" id="2_epvv7"]
+[ext_resource type="Shader" path="res://scenes/duel.gdshader" id="2_k7pi2"]
+[ext_resource type="Texture2D" uid="uid://bq86abyh22dpi" path="res://assets/Duel Background .png" id="2_tkf2w"]
 [ext_resource type="Script" path="res://scripts/instruction_label.gd" id="3_duvt1"]
 [ext_resource type="AudioStream" uid="uid://cje0q34bvguj0" path="res://assets/sfx/cock.wav" id="4_7m60k"]
+[ext_resource type="Shader" path="res://scenes/noir.gdshader" id="4_bm44m"]
 [ext_resource type="AudioStream" uid="uid://chtcyudbw0ie5" path="res://assets/sfx/gunshot.wav" id="5_va0cy"]
+[ext_resource type="Texture2D" uid="uid://cw2xwq24f2ugk" path="res://assets/Duel_Bubble_.png" id="7_pepj0"]
+[ext_resource type="Script" path="res://scenes/bubble.gd" id="8_1dnhd"]
+[ext_resource type="Texture2D" uid="uid://ducr0srdis1q2" path="res://assets/Duel_Gun.png" id="9_tw5iv"]
+[ext_resource type="Texture2D" uid="uid://dby36mllp0fh1" path="res://assets/Duel_Lizzard_Avatar_.png" id="10_lmfqd"]
+[ext_resource type="Script" path="res://scenes/lizardgunfloat.gd" id="11_aq81b"]
+[ext_resource type="Texture2D" uid="uid://c33s5i7nhetp6" path="res://assets/Goth_Lizard.png" id="13_kbbcb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x7k38"]
+shader = ExtResource("4_bm44m")
+shader_parameter/desaturation = 0.8
+shader_parameter/vignette_strength = 1.0
+shader_parameter/vignette_radius = 1.0
+shader_parameter/color_tint = Color(1, 1, 1, 1)
+shader_parameter/grain_strength = 0.1
+shader_parameter/grain_speed = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7f3dr"]
+shader = ExtResource("2_k7pi2")
+shader_parameter/speed = 1.0
+shader_parameter/amplitude = 0.06
+shader_parameter/frequency = 2.0
+shader_parameter/color_ripple_strength = 0.2
+shader_parameter/color_shift = Color(1, 1, 1, 1)
 
 [node name="Duel" type="Node2D"]
 script = ExtResource("1_ah3ox")
@@ -24,6 +50,16 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0, 0, 0, 1)
+
+[node name="Background_Duel2" type="Sprite2D" parent="."]
+modulate = Color(0.429406, 0, 0.00793645, 1)
+self_modulate = Color(0.902014, 0, 0.387265, 1)
+material = SubResource("ShaderMaterial_x7k38")
+texture = ExtResource("2_tkf2w")
+
+[node name="Background_Duel" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_7f3dr")
+texture = ExtResource("2_tkf2w")
 
 [node name="Instruction" type="Label" parent="."]
 anchors_preset = 8
@@ -62,3 +98,42 @@ volume_db = 5.0
 stream = ExtResource("5_va0cy")
 volume_db = 5.0
 pitch_scale = 0.8
+
+[node name="EnemyCharacter" type="Node2D" parent="."]
+position = Vector2(300, 0)
+scale = Vector2(0.8, 0.8)
+
+[node name="Bubble" type="Sprite2D" parent="EnemyCharacter"]
+modulate = Color(1, 0.52, 0.696, 0.745098)
+position = Vector2(18, -2)
+texture = ExtResource("7_pepj0")
+script = ExtResource("8_1dnhd")
+
+[node name="Gun" type="Sprite2D" parent="EnemyCharacter"]
+position = Vector2(-87, 0)
+scale = Vector2(-1, 1)
+texture = ExtResource("9_tw5iv")
+script = ExtResource("11_aq81b")
+
+[node name="Lizard" type="Sprite2D" parent="EnemyCharacter/Gun"]
+position = Vector2(-76, -23)
+texture = ExtResource("13_kbbcb")
+
+[node name="PlayerCharacter" type="Node2D" parent="."]
+position = Vector2(-350, 0)
+scale = Vector2(0.8, 0.8)
+
+[node name="Bubble" type="Sprite2D" parent="PlayerCharacter"]
+modulate = Color(1, 1, 1, 0.745098)
+position = Vector2(18, -2)
+texture = ExtResource("7_pepj0")
+script = ExtResource("8_1dnhd")
+
+[node name="Gun" type="Sprite2D" parent="PlayerCharacter"]
+position = Vector2(87, 12)
+texture = ExtResource("9_tw5iv")
+script = ExtResource("11_aq81b")
+
+[node name="Lizard" type="Sprite2D" parent="PlayerCharacter/Gun"]
+position = Vector2(-76, -23)
+texture = ExtResource("10_lmfqd")
