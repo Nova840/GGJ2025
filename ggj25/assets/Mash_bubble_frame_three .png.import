@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://5o42t8a2s4fy"
+=======
+uid="uid://c8orvbhuxte6a"
+>>>>>>> b41e53954ab18cb24d962e6248ac39bae01e0522
 path="res://.godot/imported/Mash_bubble_frame_three .png-cc0c0835388a3097418df8c456de60b2.ctex"
 metadata={
 "vram_texture": false

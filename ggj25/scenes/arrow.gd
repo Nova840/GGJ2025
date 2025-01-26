@@ -12,6 +12,11 @@ class_name Arrow
 @export var left_texture: Texture2D
 @export var right_texture: Texture2D
 
+@export var up_texture_popped: Texture2D
+@export var down_texture_popped: Texture2D
+@export var left_texture_popped: Texture2D
+@export var right_texture_popped: Texture2D
+
 var arrow_spawner: ArrowSpawner
 
 var time_created: float
@@ -35,8 +40,6 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	global_position.y -= speed * delta
-
 	for p in GameManager.alive_players:
 		var input: bool
 		if direction == Direction.Left:
@@ -49,11 +52,23 @@ func _process(delta: float) -> void:
 			input = GameManager.get_input_down_just_pressed(p)
 		if input and abs(time_created + 1500 - Time.get_ticks_msec()) / 1000 <= time_window:
 			players_hit.append(p)
+			sprite.top_level = true
+			sprite.global_position = global_position
+			if direction == Direction.Left:
+				sprite.texture = left_texture_popped
+			elif direction == Direction.Right:
+				sprite.texture = right_texture_popped
+			elif direction == Direction.Up:
+				sprite.texture = up_texture_popped
+			elif direction == Direction.Down:
+				sprite.texture = down_texture_popped
+			await get_tree().create_timer(0.1).timeout
 			sprite.texture = null
-		
+
+	global_position.y -= speed * delta
+
 	if (Time.get_ticks_msec() - 1500 - time_created) / 1000 >= 0.25:
 		var players_to_eliminate := GameManager.alive_players.duplicate()
 		for hit_player in players_hit:
 			players_to_eliminate.remove_at(players_to_eliminate.find(hit_player))
 		arrow_spawner.add_players_to_eliminated(players_to_eliminate)
-		

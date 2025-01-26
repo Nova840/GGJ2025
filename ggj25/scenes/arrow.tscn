@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://dxdqh7j0l6n38"]
+[gd_scene load_steps=11 format=3 uid="uid://dxdqh7j0l6n38"]
 
 [ext_resource type="Script" path="res://scenes/arrow.gd" id="1_t1v1y"]
 [ext_resource type="Texture2D" uid="uid://cj6udgkp8hujc" path="res://assets/arrowgreenpinkup.png" id="2_lffwg"]
 [ext_resource type="Texture2D" uid="uid://cj3gmkhtri0jm" path="res://assets/arroworangegreendown.png" id="3_guncw"]
 [ext_resource type="Texture2D" uid="uid://honok67ft1ar" path="res://assets/arrowsblueorangeleft.png" id="4_pig1h"]
 [ext_resource type="Texture2D" uid="uid://c2xh37ecsktg8" path="res://assets/arrowpinkblueright.png" id="5_vegls"]
+[ext_resource type="Texture2D" uid="uid://d088jhug1ptn" path="res://assets/arrowburstup.png" id="6_ctkoq"]
+[ext_resource type="Texture2D" uid="uid://bmyptk7s7gdlb" path="res://assets/arrowburstdown.png" id="7_ppopn"]
+[ext_resource type="Texture2D" uid="uid://bhgff4fhdmqce" path="res://assets/arrowburstleft.png" id="8_3cpv4"]
+[ext_resource type="Texture2D" uid="uid://715uawlpfm6g" path="res://assets/arrowburstright.png" id="9_uhd2y"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_s5iha"]
 size = Vector2(128, 128)
@@ -17,6 +21,10 @@ up_texture = ExtResource("2_lffwg")
 down_texture = ExtResource("3_guncw")
 left_texture = ExtResource("4_pig1h")
 right_texture = ExtResource("5_vegls")
+up_texture_popped = ExtResource("6_ctkoq")
+down_texture_popped = ExtResource("7_ppopn")
+left_texture_popped = ExtResource("8_3cpv4")
+right_texture_popped = ExtResource("9_uhd2y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("PlaceholderTexture2D_s5iha")
