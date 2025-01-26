@@ -14,7 +14,7 @@ func _ready() -> void:
 	)
 
 	for p in winners_sorted:
-		players_label.text += str(p) + ":" + str(GameManager.round_player_eliminated[p]) + "\n"
+		players_label.text += "Player " + str(GameManager.starting_players.find(p) + 1) + ": " + str(GameManager.round_player_eliminated[p]) + "\n"
 
 
 func _process(delta: float) -> void:

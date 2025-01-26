@@ -1,10 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://4l3goo67h2sb"]
+[gd_scene load_steps=4 format=3 uid="uid://4l3goo67h2sb"]
 
 [ext_resource type="Script" path="res://scripts/end_screen.gd" id="1_876hd"]
+[ext_resource type="Texture2D" uid="uid://cmlyojxkv5qlt" path="res://assets/Introduction_background .png" id="2_fx1ju"]
 [ext_resource type="PackedScene" uid="uid://cekbx1g251wm4" path="res://scenes/high_score_table.tscn" id="2_q6fpy"]
 
 [node name="EndScreen" type="Node"]
 script = ExtResource("1_876hd")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_fx1ju")
+expand_mode = 2
 
 [node name="HeaderLabel" type="Label" parent="."]
 anchors_preset = 5
@@ -14,6 +24,7 @@ offset_left = -34.5
 offset_right = 34.5
 offset_bottom = 23.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Winners:"
 
 [node name="PlayersLabel" type="Label" parent="."]
@@ -28,6 +39,7 @@ offset_right = 63.0
 offset_bottom = 77.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 horizontal_alignment = 1
 
 [node name="HighScoreTable" parent="." instance=ExtResource("2_q6fpy")]
