@@ -3,7 +3,10 @@ var gunfire_texture = preload("res://assets/Duel_Gun_Fire_Animation .png")
 
 var startup_delay: float = 1.75  # Wait 1.75 seconds before the game actually starts
 var game_started: bool = false   # We'll flip this once the delay is over
-
+var music 
+var synths
+var bass1
+var bass2
 var wait_time: float = 0.0       # How long until "FIRE!"
 var reset_time: float = 4.0
 var timer: float = 0.0           # Track elapsed time
@@ -22,17 +25,27 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	# 1) First, handle the startup delay
+	music = $"/root/MusicPlayer"
+	synths = $"/root/MusicPlayer/160 to 140"
+	bass1 = $"/root/MusicPlayer/160 to 141"
+	bass2 = $"/root/MusicPlayer/160 to 142"
+	
 	if not game_started:
+		synths.stop()
 		startup_delay -= delta
 		if startup_delay <= 0.0:
 			# Startup delay is over; let's start the duel
 			game_started = true
+			synths.play()
 			start_duel()
 		# Exit here; we do nothing else during the startup wait
 		return
 	
 	# 2) Once the game is started, run the duel logic as before
 	var manager = $"/root/GameManager"  # or $"MyNode"
+	
+	#if (music.playing != true):
+	#	music.play()
 
 	if not can_fire:
 		timer += delta
@@ -53,6 +66,10 @@ func _process(delta: float) -> void:
 			$"Background".color = "#FFFFFF"
 			$"Background_Duel".hide()
 			print("FIRE!")
+			music.stop()
+			synths.stop()
+			bass1.volume_db = 5
+			bass2.volume_db = 5
 	else:
 		timer += delta
 		
@@ -64,6 +81,10 @@ func _process(delta: float) -> void:
 				$"gunshot".play()
 				$"Background".color = "#00FF00"
 				lose_character($"EnemyCharacter")
+				music.play()
+				synths.play()
+				bass1.volume_db = 1.5
+				bass2.volume_db = -3
 			else:
 				print("Too late! You lose!")
 				$"gunshot2".play()

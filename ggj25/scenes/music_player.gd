@@ -6,15 +6,13 @@ var manager                       # Reference to your input manager node
 func _ready() -> void:
 	# Start normal speed
 	pitch_scale = 1.0
-	if (get_meta("bpm160")):
-		pitch_scale = 140/160
 	play()
 	
 func _process(delta: float) -> void:
-	var manager = $"/root/GameManager"  # or $"MyNode"
-	if manager.get_input_action_1_just_pressed(-1):
-		on_round_end()
-
+	#var manager = $"/root/GameManager"  # or $"MyNode"
+	#if manager.get_input_action_1_just_pressed(-1):
+	#	on_round_end()
+	pass
 
 func on_round_end() -> void:
 	round_count += 1
