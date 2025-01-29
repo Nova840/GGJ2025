@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://4l3goo67h2sb"]
+[gd_scene load_steps=11 format=3 uid="uid://4l3goo67h2sb"]
 
 [ext_resource type="Script" path="res://scripts/end_screen.gd" id="1_876hd"]
 [ext_resource type="Shader" path="res://scenes/drama.gdshader" id="2_5smdc"]
 [ext_resource type="Texture2D" uid="uid://cmlyojxkv5qlt" path="res://assets/Introduction_background .png" id="2_fx1ju"]
 [ext_resource type="PackedScene" uid="uid://cekbx1g251wm4" path="res://scenes/high_score_table.tscn" id="2_q6fpy"]
+[ext_resource type="Shader" path="res://scenes/duel.gdshader" id="4_rfeqb"]
 [ext_resource type="Shader" path="res://scenes/noir.gdshader" id="5_exv2q"]
+[ext_resource type="Texture2D" uid="uid://dtf4s3rewbril" path="res://assets/scoremenubg.png" id="5_ts14i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vibq0"]
 shader = ExtResource("2_5smdc")
@@ -13,6 +15,14 @@ shader_parameter/amplitude = 0.2
 shader_parameter/frequency = 8.0
 shader_parameter/color_shift = Color(1, 1, 1, 1)
 shader_parameter/color_separation = 0.05
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_luppe"]
+shader = ExtResource("4_rfeqb")
+shader_parameter/speed = 0.25
+shader_parameter/amplitude = 0.02
+shader_parameter/frequency = 2.0
+shader_parameter/color_ripple_strength = 0.05
+shader_parameter/color_shift = Color(1, 1, 1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ineft"]
 shader = ExtResource("5_exv2q")
@@ -36,17 +46,20 @@ grow_vertical = 2
 texture = ExtResource("2_fx1ju")
 expand_mode = 2
 
-[node name="HeaderLabel" type="Label" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -34.5
-offset_right = 34.5
-offset_bottom = 23.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
-text = "Winners:"
+[node name="Sky" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_luppe")
+position = Vector2(558, -3902)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("5_ts14i")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+offset_left = 346.0
+offset_top = 204.0
+offset_right = 386.0
+offset_bottom = 244.0
+alignment = 1
 
 [node name="PlayersLabel" type="Label" parent="."]
 anchors_preset = 8
@@ -64,6 +77,18 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 horizontal_alignment = 1
 
+[node name="HeaderLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -85.5
+offset_right = 85.5
+offset_bottom = 55.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Winners:"
+
 [node name="HighScoreTable" parent="." instance=ExtResource("2_q6fpy")]
 material = SubResource("ShaderMaterial_ineft")
 anchors_preset = 4
@@ -72,11 +97,3 @@ anchor_right = 0.0
 anchor_bottom = 0.5
 grow_horizontal = 1
 is_end_screen = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-visible = false
-offset_left = 346.0
-offset_top = 204.0
-offset_right = 386.0
-offset_bottom = 244.0
-alignment = 1

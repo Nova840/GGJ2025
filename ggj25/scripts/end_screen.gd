@@ -16,8 +16,8 @@ func _ready() -> void:
 	
 	var offset = 0
 	for p in winners_sorted:
-		players_label.text += "Player " + str(GameManager.starting_players.find(p) + 1) + ": " + str(GameManager.round_player_eliminated[p]) + "\n"
-		
+		players_label.text += "Game over! Your score: " + str(GameManager.round_player_eliminated[p]) + "\n"
+		#$"Camera2D".position = Vector2(-300, 0 - (GameManager.round_player_eliminated[p] * 100))
 		var starting_idx = GameManager.starting_players.find(p)
 		var player_texture = GameManager.PLAYER_SPRITES[starting_idx]
 		var player_sprite: Sprite2D = Sprite2D.new()

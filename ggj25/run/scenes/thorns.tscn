@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbtbe3mcbinu6"]
+[gd_scene load_steps=5 format=3 uid="uid://bbtbe3mcbinu6"]
 
 [ext_resource type="Script" path="res://run/scripts/thorns.gd" id="1_hqwl5"]
 [ext_resource type="Texture2D" uid="uid://col0o07wv0u0t" path="res://assets/New_Run_Thorns .png" id="2_0kv11"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_41r6p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whcej"]
 size = Vector2(65, 27)
@@ -10,8 +12,11 @@ size = Vector2(65, 27)
 script = ExtResource("1_hqwl5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(26, -71)
-scale = Vector2(0.3, 0.3)
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0, 0, 1)
+material = SubResource("ShaderMaterial_41r6p")
+position = Vector2(26, -100)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_0kv11")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

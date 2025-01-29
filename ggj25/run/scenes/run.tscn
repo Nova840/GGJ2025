@@ -1,5 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://b7hd1jfhtqpbk"]
+[gd_scene load_steps=24 format=3 uid="uid://b7hd1jfhtqpbk"]
 
+[ext_resource type="Shader" path="res://scenes/noir.gdshader" id="1_jx1sy"]
 [ext_resource type="Texture2D" uid="uid://ga3m68vbfrr2" path="res://assets/platformtilered.png" id="2_adwxx"]
 [ext_resource type="Script" path="res://run/scripts/level_manager.gd" id="3_1h47e"]
 [ext_resource type="Texture2D" uid="uid://cs6iyscx7842k" path="res://assets/moveabletilepurple.png" id="3_b6afu"]
@@ -7,11 +8,20 @@
 [ext_resource type="Texture2D" uid="uid://bvq1pxa1eri2d" path="res://assets/Thorns.png" id="5_1r0ih"]
 [ext_resource type="Texture2D" uid="uid://dkl72ci1cevtn" path="res://assets/runbackground.png" id="6_mt661"]
 [ext_resource type="PackedScene" uid="uid://bbtbe3mcbinu6" path="res://run/scenes/thorns.tscn" id="7_u7kg0"]
-[ext_resource type="PackedScene" path="res://run/scenes/moving_platform.tscn" id="8_y0fip"]
-[ext_resource type="PackedScene" path="res://run/scenes/goal.tscn" id="9_xjock"]
+[ext_resource type="PackedScene" uid="uid://dqpxd3p77ow5n" path="res://run/scenes/moving_platform.tscn" id="8_y0fip"]
+[ext_resource type="PackedScene" uid="uid://csjheu7eaogoe" path="res://run/scenes/goal.tscn" id="9_xjock"]
 [ext_resource type="PackedScene" uid="uid://dxtejurkcqvwy" path="res://run/scenes/game_over_zone.tscn" id="10_nel3l"]
 [ext_resource type="FontFile" uid="uid://iivpx384oqhw" path="res://assets/Stock Quote.ttf" id="11_0soam"]
 [ext_resource type="Script" path="res://scripts/instruction_label.gd" id="12_snhjr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dbbjg"]
+shader = ExtResource("1_jx1sy")
+shader_parameter/desaturation = 0.8
+shader_parameter/vignette_strength = 1.0
+shader_parameter/vignette_radius = 1.0
+shader_parameter/color_tint = Color(1, 1, 1, 1)
+shader_parameter/grain_strength = 0.1
+shader_parameter/grain_speed = 1.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7se6j"]
 texture = ExtResource("2_adwxx")
@@ -76,6 +86,7 @@ point_count = 2
 position = Vector2(578, 324)
 
 [node name="Background" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_dbbjg")
 position = Vector2(577, 322)
 scale = Vector2(1.8, 1.8)
 texture = ExtResource("6_mt661")

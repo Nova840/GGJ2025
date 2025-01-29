@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3xicpnq7krkc"]
+[gd_scene load_steps=3 format=3 uid="uid://c3xicpnq7krkc"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_d10d2"]
+[ext_resource type="AudioStream" uid="uid://biubluitdpf5m" path="res://assets/sfx/mixkit-achievement-bell-600.wav" id="2_bojwy"]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_d10d2")
 game_scene_paths = Array[String](["res://scenes/dance.tscn", "res://run/scenes/run.tscn", "res://scenes/memorize.tscn", "res://scenes/duel.tscn", "res://scenes/masher.tscn"])
 game_scene_paths_multiplayer = Array[String](["res://run/scenes/run.tscn", "res://scenes/dance.tscn"])
 dont_repeat_rounds = 2
+
+[node name="win" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_bojwy")
+volume_db = 10.0
+pitch_scale = 0.85
