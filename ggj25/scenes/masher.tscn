@@ -60,6 +60,16 @@ size_flags_vertical = 3
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(-548, 324)
+texture = ExtResource("5_5xvcq")
+
+[node name="Boulder" type="Sprite2D" parent="Player"]
+modulate = Color(1, 1, 1, 0.631373)
+position = Vector2(140, -112)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_qtg6m")
+
 [node name="Instruction" type="Label" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
@@ -82,13 +92,3 @@ text = "Mash!"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("5_7bj6o")
-
-[node name="Player" type="Sprite2D" parent="."]
-position = Vector2(-548, 324)
-texture = ExtResource("5_5xvcq")
-
-[node name="Boulder" type="Sprite2D" parent="Player"]
-modulate = Color(1, 1, 1, 0.631373)
-position = Vector2(140, -112)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("6_qtg6m")
