@@ -96,6 +96,25 @@ script = ExtResource("11_aq81b")
 position = Vector2(-76, -23)
 texture = ExtResource("13_kbbcb")
 
+[node name="PlayerCharacter" type="Node2D" parent="."]
+position = Vector2(-350, 0)
+scale = Vector2(0.8, 0.8)
+
+[node name="Bubble" type="Sprite2D" parent="PlayerCharacter"]
+modulate = Color(1, 1, 1, 0.745098)
+position = Vector2(18, -2)
+texture = ExtResource("7_pepj0")
+script = ExtResource("8_1dnhd")
+
+[node name="Gun" type="Sprite2D" parent="PlayerCharacter"]
+position = Vector2(87, 12)
+texture = ExtResource("9_tw5iv")
+script = ExtResource("11_aq81b")
+
+[node name="Lizard" type="Sprite2D" parent="PlayerCharacter/Gun"]
+position = Vector2(-76, -23)
+texture = ExtResource("10_lmfqd")
+
 [node name="Instruction" type="Label" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
@@ -118,22 +137,3 @@ text = "WAIT FOR IT!"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("3_duvt1")
-
-[node name="PlayerCharacter" type="Node2D" parent="."]
-position = Vector2(-350, 0)
-scale = Vector2(0.8, 0.8)
-
-[node name="Bubble" type="Sprite2D" parent="PlayerCharacter"]
-modulate = Color(1, 1, 1, 0.745098)
-position = Vector2(18, -2)
-texture = ExtResource("7_pepj0")
-script = ExtResource("8_1dnhd")
-
-[node name="Gun" type="Sprite2D" parent="PlayerCharacter"]
-position = Vector2(87, 12)
-texture = ExtResource("9_tw5iv")
-script = ExtResource("11_aq81b")
-
-[node name="Lizard" type="Sprite2D" parent="PlayerCharacter/Gun"]
-position = Vector2(-76, -23)
-texture = ExtResource("10_lmfqd")

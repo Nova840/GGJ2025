@@ -135,9 +135,10 @@ func next_round(players_eliminated: Array[int]) -> void:
 			alive_players.remove_at(alive_players.find(p))
 			round_player_eliminated[p] = rounds_completed
 	if (players_eliminated == []):
-		$"win".play()
+		if is_instance_valid($"win".stream):
+			$"win".play()
 
-	rounds_completed += 3
+	rounds_completed += 1
 
 	if alive_players.is_empty():
 		get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
@@ -162,7 +163,7 @@ func next_round(players_eliminated: Array[int]) -> void:
 
 
 func reset() -> void:
-	rounds_completed = -3
+	rounds_completed = -1
 	alive_players = starting_players.duplicate()
 	for p in round_player_eliminated.keys():
 		round_player_eliminated[p] = -1
