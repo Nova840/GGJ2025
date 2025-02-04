@@ -149,10 +149,11 @@ func next_round(players_eliminated: Array[int]) -> void:
 		else:
 			all_scene_options = game_scene_paths_multiplayer
 		var scenes: Array[String] = all_scene_options.duplicate()
-		for i in dont_repeat_rounds:
+		var dont_repeat = min(dont_repeat_rounds, game_scene_paths.size() - 1)
+		for i in dont_repeat:
 			if all_game_scenes_loaded.is_empty():
 				break
-			var scene_index_to_remove := scenes.find(all_game_scenes_loaded[all_game_scenes_loaded.size() - 1])
+			var scene_index_to_remove := scenes.find(all_game_scenes_loaded[all_game_scenes_loaded.size() - 1 - i])
 			if scene_index_to_remove != -1:
 				scenes.remove_at(scene_index_to_remove)
 		if scenes.is_empty():

@@ -8,7 +8,6 @@ var player_controllers: Array[PlayerController]
 func _init() -> void:
 	# spawn player sprites
 	starting_players = GameManager.alive_players
-	print("starting players : " + str(starting_players.size()))
 	
 	var start_pos_offset = 0
 	for p in starting_players:

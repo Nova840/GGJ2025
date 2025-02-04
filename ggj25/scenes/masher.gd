@@ -24,10 +24,6 @@ func _ready() -> void:
 	# Grab your manager node. Adjust the path to match your actual hierarchy.
 	manager = $"/root/GameManager"
 	difficulty = manager.rounds_completed/5
-	# Print or display a "Get ready!" message. You could also:
-	# - play a "countdown" sound
-	# - show a UI label
-	print("Get ready! Button masher will start in 1.75 seconds...")
 
 
 func _process(delta: float) -> void:
@@ -39,21 +35,15 @@ func _process(delta: float) -> void:
 			game_started = true
 			mash_timer = time_limit
 			mash_count = 0
-			print("GO! Mash the Space bar for %s seconds!" % str(time_limit))
 		return
 
 	# 2) Once the game has started, decrement the mash timer
 	mash_timer -= delta
 	#$"Background B".hide()
 	if mash_timer <= 0.0:
-		# Time is up!
-		print("TIME'S UP!")
-		print("You mashed Space %d times!" % mash_count)
 		if (mash_count > goal):
 			manager.next_round([] as Array[int])
-			print("Victory!")
 		else:
-			print("Failure")
 			manager.next_round([-1] as Array[int]) ## implement failure mechanism here
 			
 		# Optionally reset for another round, or you can stop here
@@ -76,8 +66,3 @@ func _process(delta: float) -> void:
 		$Player/Boulder.rotate(0.1)
 		if mash_count > goal:
 			$"Background B".show()
-		#$"Progress".set_position(Vector2($"Progress".get_position().x, max(-540, 540 - ((540*2) * (mash_count/goal)))))
-		#$"Background".color = Color(1, 1, 1) # White flash
-		print("Mash count: %d" % mash_count)
-		print("Y position: %d" % $"Progress".get_position().y)
-		#$"Background B".show()
