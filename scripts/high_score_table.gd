@@ -3,7 +3,7 @@ class_name HighScoreTable
 
 var high_scores: Array[int]
 
-@onready var scores_label: Label = $TextureRect/ScoresLabel
+@onready var scores_label: Label = $Container/ScoresLabel
 
 @export var is_end_screen: bool = false
 

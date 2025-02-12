@@ -5,10 +5,6 @@ var gunfire_texture = preload("res://assets/Duel_Gun_Fire_Animation .png")
 
 var startup_delay: float = 1.75  # Wait 1.75 seconds before the game actually starts
 var game_started: bool = false   # We'll flip this once the delay is over
-var music 
-var synths
-var bass1
-var bass2
 var wait_time: float = 0.0       # How long until "FIRE!"
 var reset_time: float = 4.0
 var timer: float = 0.0           # Track elapsed time
@@ -21,33 +17,22 @@ var tween: Tween
 
 
 func _process(delta: float) -> void:
-	# 1) First, handle the startup delay
-	music = $"/root/MusicPlayer"
-	synths = $"/root/MusicPlayer/160 to 140"
-	bass1 = $"/root/MusicPlayer/160 to 141"
-	bass2 = $"/root/MusicPlayer/160 to 142"
-	
 	if not game_started:
-		synths.stop()
 		startup_delay -= delta
 		if startup_delay <= 0.0:
 			# Startup delay is over; let's start the duel
 			game_started = true
-			synths.play()        
 			start_duel()
 		# Exit here; we do nothing else during the startup wait
 		return
-	
-	# 2) Once the game is started, run the duel logic as before
+
+	# Once the game is started, run the duel logic as before
 	var manager = $"/root/GameManager"  # or $"MyNode"
 	difficulty = manager.rounds_completed
-	
-	#if (music.playing != true):
-	#	music.play()
 
 	if not can_fire:
 		timer += delta
-		
+
 		# If user presses early, it's a loss
 		for p in GameManager.alive_players:
 			if manager.get_input_action_1_just_pressed(p):
@@ -55,20 +40,16 @@ func _process(delta: float) -> void:
 				can_fire = false
 				if not prefired.has(p):
 					prefired.append(p)
-		
+
 		# Once wait_time is reached, "FIRE!"
 		if timer >= wait_time:
 			can_fire = true
 			timer = 0.0
 			$"Background".color = "#FFFFFF"
 			$"Background_Duel".hide()
-			music.stop()
-			synths.stop()
-			bass1.volume_db = 5
-			bass2.volume_db = 5
 	else:
 		timer += delta
-		
+
 		for p in GameManager.alive_players:
 			if manager.get_input_action_1_just_pressed(p):
 				if timer <= reaction_window:
@@ -77,17 +58,13 @@ func _process(delta: float) -> void:
 					$"gunshot".play()
 					$"Background".color = "#00FF00"
 					lose_character($"EnemyCharacter")
-					music.play()
-					synths.play()
-					bass1.volume_db = 1.5
-					bass2.volume_db = -3
 					fired_hit.append(p)
 				else:
 					$"gunshot2".play()
 					$"PlayerCharacter/Bubble".hide()
 					$"Background".color = "#FF0000"
 					lose_character($"PlayerCharacter")
-		
+
 		if timer > reaction_window:
 			$"PlayerCharacter/Bubble".hide()
 			$"Background".color = "#FF0000"
@@ -104,12 +81,12 @@ func start_duel() -> void:
 	randomize()
 	# Randomly set the wait time
 	wait_time = randf_range(4, 10)
-	
+
 	# Adjust reaction window based on difficulty
 	reaction_window = reaction_window - (difficulty * 0.4)
 	if reaction_window < 0.1:
 		reaction_window = 0.1
-	
+
 	$"cock".play()
 	$"Background".color = "#000000"
 
@@ -124,4 +101,4 @@ func lose_character(character_node: Node2D) -> void:
 
 
 func _exit_tree() -> void:
-	tween.kill()
+	if is_instance_valid(tween): tween.kill()

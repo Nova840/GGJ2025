@@ -24,10 +24,10 @@ func get_input_move(player_controller: int) -> Vector2:
 		return Input.get_vector("Keyboard Left", "Keyboard Right", "Keyboard Up", "Keyboard Down")
 	else:
 		return Input.get_vector(
-				"Joypad " + str(player_controller) + " Left", \
-				"Joypad " + str(player_controller) + " Right", \
-				"Joypad " + str(player_controller) + " Up", \
-				"Joypad " + str(player_controller) + " Down", \
+				"Joypad " + str(player_controller) + " Left",
+				"Joypad " + str(player_controller) + " Right",
+				"Joypad " + str(player_controller) + " Up",
+				"Joypad " + str(player_controller) + " Down",
 		)
 
 
