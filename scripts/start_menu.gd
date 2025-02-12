@@ -11,16 +11,18 @@ class_name StartMenu
 func _ready() -> void:
 	GameManager.reset()
 	start_label.visible = false
-	
+
 
 func _process(delta: float) -> void:
+	var has_player := GameManager.starting_players.size() > 0
+
 	for p in range(-1, 4):
 		if GameManager.get_input_action_1(p):
 			GameManager.add_player(p)
 		if GameManager.get_input_action_2(p):
 			GameManager.remove_player(p)
-		if GameManager.get_input_start_just_pressed(p) and GameManager.starting_players.size() > 0:
+		if GameManager.get_input_start_just_pressed(p) and has_player:
 			GameManager.next_round([])
-	
-	if GameManager.starting_players.size() > 0:
-		start_label.visible = true
+
+	if has_player != start_label.visible:
+		start_label.visible = has_player

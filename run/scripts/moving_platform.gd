@@ -24,4 +24,4 @@ func _move_tween():
 
 
 func _exit_tree() -> void:
-	tween.kill()
+	if is_instance_valid(tween): tween.kill()
