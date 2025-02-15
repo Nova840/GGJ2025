@@ -27,15 +27,14 @@ func _process(delta: float) -> void:
 		return
 
 	# Once the game is started, run the duel logic as before
-	var manager = $"/root/GameManager"  # or $"MyNode"
-	difficulty = manager.rounds_completed
+	difficulty = GameManager.rounds_completed
 
 	if not can_fire:
 		timer += delta
 
 		# If user presses early, it's a loss
 		for p in GameManager.alive_players:
-			if manager.get_input_action_1_just_pressed(p):
+			if GameManager.get_input_action_1_just_pressed(p):
 				$"cock".play()
 				can_fire = false
 				if not prefired.has(p):
@@ -51,7 +50,7 @@ func _process(delta: float) -> void:
 		timer += delta
 
 		for p in GameManager.alive_players:
-			if manager.get_input_action_1_just_pressed(p):
+			if GameManager.get_input_action_1_just_pressed(p):
 				if timer <= reaction_window:
 					$"PlayerCharacter/Gun".texture = gunfire_texture
 					$"EnemyCharacter/Bubble".hide()
@@ -73,7 +72,7 @@ func _process(delta: float) -> void:
 			for i in range(players_lost.size() - 1, -1, -1):  # Iterate backwards
 				if fired_hit.has(players_lost[i]) and not prefired.has(players_lost[i]):
 					players_lost.remove_at(i)
-			manager.next_round(players_lost)
+			GameManager.next_round(players_lost)
 
 
 func start_duel() -> void:

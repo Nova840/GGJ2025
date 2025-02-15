@@ -35,7 +35,6 @@ func _process(delta: float) -> void:
 			players_eliminated.append(_controller_to_id(p))
 		if p.finished_level:
 			players_won.append(_controller_to_id(p))
-			# TODO - remove player visibility
 	
 	# if all alive players have made it to the goal, move on to the next level
 	if players_eliminated.size() + players_won.size() == starting_players.size():

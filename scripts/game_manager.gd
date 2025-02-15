@@ -2,7 +2,6 @@ extends Node
 
 
 @export_file var game_scene_paths: Array[String]
-@export_file var game_scene_paths_multiplayer: Array[String]
 @export var dont_repeat_rounds: int
 
 const PLAYER_SPRITES: Array[Resource] = [
@@ -143,12 +142,7 @@ func next_round(players_eliminated: Array[int]) -> void:
 	if alive_players.is_empty():
 		get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
 	else:
-		var all_scene_options: Array[String]
-		if starting_players.size() == 1:
-			all_scene_options = game_scene_paths
-		else:
-			all_scene_options = game_scene_paths_multiplayer
-		var scenes: Array[String] = all_scene_options.duplicate()
+		var scenes: Array[String] = game_scene_paths.duplicate()
 		var dont_repeat = min(dont_repeat_rounds, game_scene_paths.size() - 1)
 		for i in dont_repeat:
 			if all_game_scenes_loaded.is_empty():
@@ -157,7 +151,7 @@ func next_round(players_eliminated: Array[int]) -> void:
 			if scene_index_to_remove != -1:
 				scenes.remove_at(scene_index_to_remove)
 		if scenes.is_empty():
-			scenes = all_scene_options.duplicate()
+			scenes = game_scene_paths.duplicate()
 		var scene_to_load: String = scenes[randi_range(0, scenes.size() - 1)]
 		all_game_scenes_loaded.append(scene_to_load)
 		get_tree().change_scene_to_file(scene_to_load)
