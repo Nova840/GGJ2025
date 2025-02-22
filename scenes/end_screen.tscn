@@ -87,7 +87,7 @@ offset_bottom = 55.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
-text = "Winners:"
+text = "Game Over!"
 
 [node name="HighScoreTable" parent="." instance=ExtResource("2_q6fpy")]
 material = SubResource("ShaderMaterial_ineft")
