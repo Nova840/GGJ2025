@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bwn66ib253vmk"]
 
-[ext_resource type="Script" path="res://run/scripts/player_controller.gd" id="1_4y3d7"]
-[ext_resource type="Script" path="res://run/scripts/player_animator.gd" id="2_e26g4"]
+[ext_resource type="Script" path="res://scripts/player_controller.gd" id="1_4y3d7"]
+[ext_resource type="Script" path="res://scripts/player_animator.gd" id="2_e26g4"]
 [ext_resource type="Texture2D" uid="uid://b1f4d5cor7r10" path="res://assets/Blue Bubble .png" id="3_j4mu5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b1kq8"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://csjheu7eaogoe"]
 
-[ext_resource type="Script" path="res://run/scripts/goal.gd" id="1_ctlqu"]
+[ext_resource type="Script" path="res://scripts/goal.gd" id="1_ctlqu"]
 [ext_resource type="Texture2D" uid="uid://dm8nt86o7ujs2" path="res://assets/bucketrun.png" id="1_qsfp1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wisu8"]

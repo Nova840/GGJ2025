@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bbtbe3mcbinu6"]
 
-[ext_resource type="Script" path="res://run/scripts/thorns.gd" id="1_hqwl5"]
+[ext_resource type="Script" path="res://scripts/thorns.gd" id="1_hqwl5"]
 [ext_resource type="Texture2D" uid="uid://col0o07wv0u0t" path="res://assets/New_Run_Thorns .png" id="2_0kv11"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_41r6p"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dxtejurkcqvwy"]
 
-[ext_resource type="Script" path="res://run/scripts/game_over_zone.gd" id="1_bkvmq"]
+[ext_resource type="Script" path="res://scripts/game_over_zone.gd" id="1_bkvmq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cshyj"]
 

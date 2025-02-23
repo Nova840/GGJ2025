@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://iivpx384oqhw"
-path="res://.godot/imported/Stock Quote.ttf-8d045578309e821156b23abcf4699dec.fontdata"
+path="res://.godot/imported/Stock Quote.ttf-2c5334cc691f70735f25bc94f6bcfc24.fontdata"
 
 [deps]
 
-source_file="res://assets/Stock Quote.ttf"
-dest_files=["res://.godot/imported/Stock Quote.ttf-8d045578309e821156b23abcf4699dec.fontdata"]
+source_file="res://assets/fonts/Stock Quote.ttf"
+dest_files=["res://.godot/imported/Stock Quote.ttf-2c5334cc691f70735f25bc94f6bcfc24.fontdata"]
 
 [params]
 

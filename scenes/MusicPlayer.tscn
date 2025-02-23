@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://d2h2ivxabqesl"]
 
 [ext_resource type="AudioStream" uid="uid://clwceedu7sn66" path="res://assets/sfx/breakbeat.wav" id="1_5c26w"]
-[ext_resource type="Script" path="res://scenes/music_player.gd" id="2_j7owc"]
+[ext_resource type="Script" path="res://scripts/music_player.gd" id="2_j7owc"]
 [ext_resource type="AudioStream" uid="uid://d3hi1ilbx0fk6" path="res://assets/sfx/HTS Melodies 02a D 160BPM.wav" id="3_54j44"]
 [ext_resource type="AudioStream" uid="uid://w7ggsv7pey2g" path="res://assets/sfx/bass.wav" id="5_0u6l3"]
 [ext_resource type="AudioStream" uid="uid://ds7dbqn5rsqnj" path="res://assets/sfx/HTS Melodies 08f G 140BPM.wav" id="5_b7v83"]

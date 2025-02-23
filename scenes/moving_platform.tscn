@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dqpxd3p77ow5n"]
 
-[ext_resource type="Script" path="res://run/scripts/moving_platform.gd" id="1_0yoni"]
+[ext_resource type="Script" path="res://scripts/moving_platform.gd" id="1_0yoni"]
 [ext_resource type="Texture2D" uid="uid://cs6iyscx7842k" path="res://assets/moveabletilepurple.png" id="1_61ut7"]
 
 [sub_resource type="Curve2D" id="Curve2D_yu2lk"]

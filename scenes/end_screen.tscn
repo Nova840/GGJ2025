@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://4l3goo67h2sb"]
 
 [ext_resource type="Script" path="res://scripts/end_screen.gd" id="1_876hd"]
-[ext_resource type="Shader" path="res://scenes/drama.gdshader" id="2_5smdc"]
+[ext_resource type="Shader" path="res://shaders/drama.gdshader" id="2_5smdc"]
 [ext_resource type="Texture2D" uid="uid://cmlyojxkv5qlt" path="res://assets/Introduction_background .png" id="2_fx1ju"]
 [ext_resource type="PackedScene" uid="uid://cekbx1g251wm4" path="res://scenes/high_score_table.tscn" id="2_q6fpy"]
-[ext_resource type="Shader" path="res://scenes/duel.gdshader" id="4_rfeqb"]
-[ext_resource type="Shader" path="res://scenes/noir.gdshader" id="5_exv2q"]
+[ext_resource type="Shader" path="res://shaders/duel.gdshader" id="4_rfeqb"]
+[ext_resource type="Shader" path="res://shaders/noir.gdshader" id="5_exv2q"]
 [ext_resource type="Texture2D" uid="uid://dtf4s3rewbril" path="res://assets/scoremenubg.png" id="5_ts14i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vibq0"]
