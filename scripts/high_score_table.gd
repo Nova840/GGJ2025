@@ -22,8 +22,11 @@ func _ready() -> void:
 	high_scores.reverse()
 
 	scores_label.text = ""
-	for score in high_scores.slice(0, 10):
-		scores_label.text += str(score) + "\n"
+	for i in 10:
+		if i < high_scores.size():
+			scores_label.text += str(high_scores[i]) + "\n"
+		else:
+			scores_label.text += "-\n"
 
 	save_high_scores()
 

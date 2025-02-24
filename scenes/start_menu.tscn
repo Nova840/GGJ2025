@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dp00ysmnpthbj"]
+[gd_scene load_steps=10 format=3 uid="uid://dp00ysmnpthbj"]
 
 [ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_7gmsj"]
 [ext_resource type="Script" path="res://scripts/start_player_label.gd" id="2_1bvnr"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cekbx1g251wm4" path="res://scenes/high_score_table.tscn" id="3_v5ulp"]
 [ext_resource type="Texture2D" uid="uid://cmlyojxkv5qlt" path="res://assets/Introduction_background .png" id="4_sfbda"]
 [ext_resource type="Texture2D" uid="uid://h6mcde5b1eqa" path="res://assets/titlenamebubble.png" id="6_xj0dg"]
+[ext_resource type="Script" path="res://scripts/kitty_spawner.gd" id="7_unke1"]
+[ext_resource type="PackedScene" uid="uid://pcjn12r8btd1" path="res://scenes/kitty.tscn" id="8_ljsbs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1lyf5"]
 shader = ExtResource("2_gj2cg")
@@ -135,3 +137,13 @@ offset_right = 260.0
 offset_bottom = 318.0
 grow_horizontal = 2
 texture = ExtResource("6_xj0dg")
+
+[node name="KittySpawner" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1490.0
+offset_top = 387.0
+offset_right = 1490.0
+offset_bottom = 387.0
+script = ExtResource("7_unke1")
+kitty_scene = ExtResource("8_ljsbs")

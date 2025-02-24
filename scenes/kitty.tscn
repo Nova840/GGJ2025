@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://pcjn12r8btd1"]
+
+[ext_resource type="Texture2D" uid="uid://o5lt5vkgumup" path="res://assets/kitty.png" id="1_dllai"]
+[ext_resource type="Script" path="res://scripts/kitty.gd" id="1_gnous"]
+
+[node name="Kitty" type="TextureRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.5
+offset_top = -109.0
+offset_right = 101.5
+offset_bottom = 109.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(101, 109)
+texture = ExtResource("1_dllai")
+expand_mode = 1
+flip_h = true
+script = ExtResource("1_gnous")
+move_speed = 1000.0
+rotate_speed = -180.0
