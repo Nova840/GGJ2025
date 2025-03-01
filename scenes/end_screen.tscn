@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://4l3goo67h2sb"]
+[gd_scene load_steps=12 format=3 uid="uid://4l3goo67h2sb"]
 
 [ext_resource type="Script" path="res://scripts/end_screen.gd" id="1_876hd"]
 [ext_resource type="Shader" path="res://shaders/drama.gdshader" id="2_5smdc"]
+[ext_resource type="PackedScene" uid="uid://cw3mh0mdl7t2e" path="res://scenes/quit_on_escape.tscn" id="2_csokc"]
 [ext_resource type="Texture2D" uid="uid://cmlyojxkv5qlt" path="res://assets/Introduction_background .png" id="2_fx1ju"]
 [ext_resource type="PackedScene" uid="uid://cekbx1g251wm4" path="res://scenes/high_score_table.tscn" id="2_q6fpy"]
 [ext_resource type="Shader" path="res://shaders/duel.gdshader" id="4_rfeqb"]
@@ -35,6 +36,8 @@ shader_parameter/grain_speed = 1.0
 
 [node name="EndScreen" type="Node"]
 script = ExtResource("1_876hd")
+
+[node name="QuitOnEscape" parent="." instance=ExtResource("2_csokc")]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_vibq0")
