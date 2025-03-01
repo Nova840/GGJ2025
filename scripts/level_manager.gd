@@ -11,7 +11,7 @@ func _init() -> void:
 	
 	var start_pos_offset = 0
 	for p in starting_players:
-		var player_scene: PlayerController = preload("res://run/scenes/player.tscn").instantiate()
+		var player_scene: PlayerController = preload("res://scenes/player.tscn").instantiate()
 		add_child(player_scene)
 		player_scene.id = p
 		player_scene.global_position.x = 20 + start_pos_offset
